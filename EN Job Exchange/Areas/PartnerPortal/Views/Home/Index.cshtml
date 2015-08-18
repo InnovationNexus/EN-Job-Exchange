@@ -1,0 +1,176 @@
+﻿@model ENJobExchange.Areas.PartnerPortal.ViewModels.HomeIndexViewModel
+@{
+    ViewBag.Title = "Employer Portal Home Page";
+    ViewBag.Account = Model.PartnerID;
+}
+<h2>
+    Employer Portal Home
+</h2>
+<h3>
+    My Recent Referrals
+</h3>
+@using (Html.BeginForm("Index", "Home", FormMethod.Get, new { SearchString = ViewBag.SearchString }))
+{
+    <p>
+        @Html.ActionLink("Show All Referrals", "Index", "Referral", new { partnerID = Model.PartnerID }, null)
+        |
+        @Html.DropDownListFor(m => m.SelectedStatusID, Model.StatusList)
+        |
+        @Html.TextBox("SearchString", "", new { id = "SearchString" }) @Html.ActionLink("Search for Referrals", "", "", new object { }, new { @id = "SearchButton" })
+        @*@Html.ActionLink("Account Management", "Index", "Account", new { id = Model.PartnerID }, null)*@
+    </p>
+}
+<hr />
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.referrals.First().ReferralDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referrals.First().JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referrals.First().PartnerRequisitionNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referrals.First().StatusDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referrals.First().Name_First)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referrals.First().Name_Last)
+        </th>
+    </tr>
+    @foreach (var item in Model.referrals)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferralDate)
+                @Html.HiddenFor(modelItem => item.ENID)
+                @Html.HiddenFor(modelItem => item.PartnerID)
+                @Html.HiddenFor(modelItem => item.ReferralID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartnerRequisitionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_First)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_Last)
+            </td>
+            <td style="min-width: 125px; text-align: center">
+                @Html.ActionLink("Details", "Details", "Referral", new { referralID = item.ReferralID }, null)
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<br />
+<h3>
+    My Recent Job Postings
+</h3>
+<p>
+    @Html.ActionLink("Show All Job Postings", "Index", "JobPosting", new { partnerID = Model.PartnerID }, null)
+    |
+    @Html.ActionLink("Create New Job Posting", "Create", "JobPosting", new { }, null)
+</p>
+<hr />
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => Model.jobPostings.First().JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().PostingStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().PostingEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().Requirements)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().WorkSchedule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().CreatedDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().Description_JobPosting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().EstHoursPerWeek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().BusinessCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobPostings.First().Active_YN)
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item1 in Model.jobPostings)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item1.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.PostingStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.PostingEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.Requirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.WorkSchedule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.CreatedDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.Description_JobPosting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.EstHoursPerWeek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.BusinessCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item1.Active_YN)
+            </td>
+            <td style="min-width: 135px; text-align: center">
+                @Html.ActionLink("Edit", "Edit", "JobPosting", new { jobPostingID = item1.JobPostingID }, null)
+                |
+                @Html.ActionLink("Details", "Details", "JobPosting", new { jobPostingID = item1.JobPostingID }, null)
+                |
+                @Html.ActionLink("Delete", "Delete", "JobPosting", new { jobPostingID = item1.JobPostingID }, null)
+            </td>
+        </tr>
+    }
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $('#SearchButton').click(function (e) {
+                e.preventDefault();
+                $(this).parents('form').first().submit();
+            });
+        });
+
+    });
+</script>

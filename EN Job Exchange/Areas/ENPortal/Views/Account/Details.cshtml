@@ -1,0 +1,85 @@
+﻿@model ENJobExchange.DAL.Account_EN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Account_EN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ENID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ENID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name_First)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name_First)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name_Last)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name_Last)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PasswordLastReset_DT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PasswordLastReset_DT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsMasterYN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsMasterYN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ResetCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ResetCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ResetTimestamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ResetTimestamp)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Account_ENID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

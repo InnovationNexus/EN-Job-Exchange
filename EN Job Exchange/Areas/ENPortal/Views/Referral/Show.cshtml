@@ -1,0 +1,80 @@
+﻿@model ENJobExchange.Areas.ENPortal.ViewModels.ReferralHistory
+
+@{
+    ViewBag.Title = "Job Referrals";
+}
+
+<h2>Referral History</h2>
+
+@*<p>        BROKEN LINK????
+    @Html.ActionLink("Create New", "Create", "Referral")
+</p>*@
+<h3>Filter Referrals:</h3>
+@using (Html.BeginForm("Show", "Referral"))
+{
+    <fieldset>
+        @Html.DropDownList("SelectedReferralStatusID", (SelectList)Model.ReferralStatusList)
+        @Html.HiddenFor(m => m.CreatedLastX)
+        <input type="submit" value="Apply Filter" />
+    </fieldset>
+}
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().Referral_DT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().Name_First)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().Name_Last)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().EmployerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().StatusDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().EN_Notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Referrals) {
+    <tr>
+    @Html.HiddenFor(modelItem => item.ReferralID)
+        <td>
+            @Html.DisplayFor(modelItem => item.Referral_DT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_First)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Last)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EN_Notes)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.ReferralID }) 
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@Html.ActionLink("Portal Home", "Index", "Home")

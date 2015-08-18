@@ -1,0 +1,133 @@
+﻿@model ENJobExchange.DAL.JobPosting
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>JobPosting</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PartnerID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PartnerID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LocationID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LocationID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PositionID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PositionID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ContactID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContactID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PartnerRequisitionNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PartnerRequisitionNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PartnerJobLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PartnerJobLevel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BusinessCategory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BusinessCategory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description_External)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description_External)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description_JobPosting)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description_JobPosting)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Requirements)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Requirements)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EstHoursPerWeek)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EstHoursPerWeek)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.WorkSchedule)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WorkSchedule)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedDT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PostingStartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostingStartDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PostingEndDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostingEndDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Active_YN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Active_YN)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

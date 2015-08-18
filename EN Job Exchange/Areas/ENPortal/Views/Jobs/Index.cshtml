@@ -1,0 +1,97 @@
+﻿@model ENJobExchange.Areas.ENPortal.ViewModels.JobSearchModel
+@{
+    ViewBag.Title = "Index";
+}
+<h3>Search Job Postings</h3>
+<br />
+<div id="divSearch" style="border: 2px solid black; width: 1140px; height: auto;">
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <table>
+                <tr>
+                    <th style="text-align: center">ZipCode</th>
+                    <th style="text-align: center">Range</th>
+                    <th style="text-align: center">Keyword</th>
+                    <th style="text-align: center">Industry</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center">@Html.TextBoxFor(m => Model.zipcode1)</td>
+                    <td style="text-align: center">@Html.TextBoxFor(m => Model.range)</td>
+                    <td style="text-align: center">@Html.TextBoxFor(m => Model.keyword)</td>
+                    <td style="text-align: center">@Html.DropDownListFor(m => m.IndustryCategoryCode, Model.IndustryCategoryList)</td>
+                </tr>
+            </table>
+            <br />
+            <div style="float: right">
+                <input type="submit" value="Search" />
+            </div>
+            <br />
+            <br />
+            @if (Request.HttpMethod == "POST")
+            { 
+                <hr style="color:Black; background-color:Black; height: 2px;" />
+                <h3>&nbsp;&nbsp;
+                    Jobs matching your criteria...</h3>
+                <hr />
+
+                <table>
+                    <tr>
+                        @*                        <th>
+                            @Html.DisplayNameFor(model => model.PostedJobs.First().JobPostingID)
+                        </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostedJobs.First().JobTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostedJobs.First().CityStateZip)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostedJobs.First().CompanyName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostedJobs.First().WorkSchedule)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PostedJobs.First().EstHoursPerWeek)
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.PostedJobs)
+                    {
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(modelItem => item.JobPostingID)
+                                @Html.ActionLink(item.JobTitle, "Details", new { id = item.JobPostingID }, null)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CityStateZip)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CompanyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WorkSchedule)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EstHoursPerWeek)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Make Referral", "MakeReferral", new { id = item.JobPostingID }, null)
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            }
+        </fieldset>   
+    }
+</div>
+<br />
+<br />
+<p>
+    @*    @Html.ActionLink("Back to List", "Index", "Home")
+ <a href="javascript:history.back()">Back to List</a>*@
+@Html.ActionLink("Portal Home", "Index", "Home")
+</p>

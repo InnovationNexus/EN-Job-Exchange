@@ -1,0 +1,107 @@
+﻿@model ENJobExchange.Areas.ENPortal.ViewModels.JobDisplayModel
+@{
+    ViewBag.Title = "MakeReferral";
+}
+<h2>Submit a Referral</h2>
+
+@Html.Partial("CreateReferral_partial", new ENJobExchange.Areas.ENPortal.ViewModels.Referral() { JobPostingID = Model.JobPostingID, EmployerName = Model.CompanyName })
+
+<fieldset>
+    <legend></legend>
+    <div style="float: right">
+        <fieldset>
+            <legend>Position Details</legend>    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobPostingID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobPostingID)
+    </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.JobTitle)
+            </div>
+            @*    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BusinessCategory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BusinessCategory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description_External)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description_External)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description_JobPosting)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description_JobPosting)
+    </div>*@
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Requirements)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Requirements)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.EstHoursPerWeek)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.EstHoursPerWeek)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.WorkSchedule)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.WorkSchedule)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.CreatedDT)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.CreatedDT)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.PostingStartDate)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.PostingStartDate)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.PostingEndDate)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.PostingEndDate)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Active_YN)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Active_YN)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.CompanyName)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.CityStateZip)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.CityStateZip)
+            </div>
+        </fieldset>
+        <br />
+        <p>
+            @*    @Html.ActionLink("Back to List", "Index")*@ 
+            <a href="javascript:history.back()">
+                Back to List</a>
+        </p>
+    </div>
+</fieldset>

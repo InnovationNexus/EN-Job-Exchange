@@ -1,0 +1,94 @@
+﻿@model ENJobExchange.Areas.PartnerPortal.ViewModels.JobPostingViewModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>JobPosting</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.PartnerJobLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.PartnerJobLevel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.JobTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.JobTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.BusinessCategory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.BusinessCategory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.Description_JobPosting)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.Description_JobPosting)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.Requirements)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.Requirements)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.EstHoursPerWeek)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.EstHoursPerWeek)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.WorkSchedule)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.WorkSchedule)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.CreatedDT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.CreatedDT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.PostingStartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.PostingStartDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.PostingEndDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.PostingEndDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobPosting.Active_YN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobPosting.Active_YN)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index", "Home", new { }, null)
+    </p>
+}

@@ -1,0 +1,72 @@
+﻿@model ENJobExchange.Areas.ENPortal.ViewModels.Referral
+@{
+    ViewBag.Title = "Referral Details";
+}
+<h2>
+    Referral Details</h2>
+<fieldset>
+    <legend>for @Html.DisplayFor(model => model.Name_First) @Html.DisplayFor(model => model.Name_Last)
+    </legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.EmployerName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployerName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Referral_DT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Referral_DT)
+    </div>
+    @Html.HiddenFor(model => model.JobPostingID)
+    @Html.HiddenFor(model => model.ReferralTypeID)
+    @Html.HiddenFor(model => model.Account_ENID)
+    @Html.HiddenFor(model => model.ENID)
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name_First)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name_First)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name_Last)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name_Last)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.File_CoverLetter)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.File_CoverLetter)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.File_Resume)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.File_Resume)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.EN_Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EN_Notes)
+    </div>
+    <br />
+    <div class="display-field">
+    <b>Employer Feedback:</b><br />
+    <ul>
+        <li><b>Status:</b> @Html.DisplayFor(model => model.StatusDesc)</li>
+    @foreach(var item in Model.ReferralNotes)
+    {
+        <li>@Html.DisplayFor(modelItem => item.Note)</li>
+    }
+    </ul>
+    </div>
+
+    <p>
+        @* @Html.ActionLink("Back to List", "Index", "Home")
+*@ <a href="javascript:history.back()">Back to List</a>
+    </p>
+</fieldset>

@@ -1,0 +1,89 @@
+﻿@model ENJobExchange.Areas.PartnerPortal.ViewModels.ReferralViewModel
+@{
+    ViewBag.Title = "Referral Details";
+}
+<h2>
+    Referral Details
+</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>for @Html.DisplayFor(model => model.referral.Name_First) @Html.DisplayFor(model => model.referral.Name_Last)</legend>
+        @Html.HiddenFor(model => model.referral.Account_ENID)
+        @Html.HiddenFor(model => model.referral.ENID)
+        @Html.HiddenFor(model => model.referral.PartnerID)
+        @Html.HiddenFor(model => model.Account_EmployerID)
+        @Html.HiddenFor(model => model.referral.ReferralID)
+        @Html.HiddenFor(model => model.referral.ReferralTypeID)
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.referral.EmployerName)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.referral.EmployerName)
+        </div>
+        @*<div class="display-label">
+            @Html.DisplayNameFor(model => model.referral.EmploymentNetworkName)
+        </div>*@
+        <div class="display-field">
+            @Html.DisplayFor(model => model.referral.EmploymentNetworkName) 
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.referral.ReferralDate)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.referral.ReferralDate)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.referral.Name_First)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.referral.Name_First)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.referral.Name_Last)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.referral.Name_Last)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.referral.ENNotes)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.referral.ENNotes)
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.referral.StatusDesc)
+        </div>
+        <div class="display-field">
+            @Html.DropDownListFor(m => m.ReferralStatus, Model.GetStatusList())
+        </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.ReferralNotes.First().Note)
+        </div>
+        <div>
+            @Html.TextArea("Note", "", 6, 60, new object { })
+        </div>
+        Provide as feedback @Html.CheckBox("ProvideAsFeedback_YN")
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        @Html.EditorFor(model => model.ReferralNotes)
+        <p>
+            @*<input type="submit" value="Update Referral" />*@ <span style="font-weight: normal">@Html.ActionLink("Update Referral", "createNewNote", "Referral", new object { }, new { @id = "updateReferral" })</span>
+            |
+            @Html.ActionLink("Back to List", "Index", "Home", new { }, null)
+        </p>
+    </fieldset>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $('#updateReferral').click(function (e) {
+                e.preventDefault();
+                $(this).parents('form').first().submit();
+            });
+        });
+
+    });
+</script>

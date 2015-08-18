@@ -1,0 +1,88 @@
+﻿@model ENJobExchange.Areas.ENPortal.ViewModels.Referral
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    <div style="float:left;">
+  @using (Html.BeginForm("Create", "Referral"))
+    {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+            @Html.HiddenFor(model => model.JobPostingID)
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name_First)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name_First)
+            @Html.ValidationMessageFor(model => model.Name_First)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name_Last)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name_Last)
+            @Html.ValidationMessageFor(model => model.Name_Last)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.File_CoverLetter)
+        </div>
+        <div class="editor-field">
+           <input type="file" id="btnUploadCover" name="btnUploadCover" />
+            @Html.ValidationMessageFor(model => model.File_CoverLetter)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.File_Resume)
+        </div>
+        <div class="editor-field">
+           <input type="file" id="btnUploadResume" name="btnUploadResume" />
+            @Html.ValidationMessageFor(model => model.File_Resume)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EN_Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EN_Notes)
+            @Html.ValidationMessageFor(model => model.EN_Notes)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ConfirmationNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConfirmationNumber)
+            @Html.ValidationMessageFor(model => model.ConfirmationNumber)
+        </div>
+        <p>
+
+            <input type="submit" value="Create" id="btnCreateRef"/>
+
+        </p>
+    </fieldset>
+    }
+
+</div>
+
+
+@*
+        <div>
+
+@using (Html.BeginForm("FileUpload", "Referral",  FormMethod.Post, new { file = "multipart/form-data" }))
+{ 
+     @Html.ValidationSummary();
+     <ol>
+      <li class="lifile">
+       <input type="file" id="file" name="file" />
+       <span class="field-validation-error" id="spanfile"></span>
+     </li>
+    </ol>
+<input type="submit" id="btnUploadCover" value="Upload" />
+}
+
+</div>
+
+*@

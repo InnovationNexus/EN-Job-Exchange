@@ -1,0 +1,98 @@
+﻿@model ENJobExchange.Areas.PartnerPortal.ViewModels.HomeIndexViewModel
+@{
+    ViewBag.Title = "My Job Postings";
+}
+
+<h2>My Job Postings</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().PartnerRequisitionNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().PartnerJobLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().BusinessCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().Description_JobPosting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().Requirements)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().EstHoursPerWeek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().WorkSchedule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().CreatedDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().PostingStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().PostingEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EJobPostings.First().Active_YN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.EJobPostings) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartnerRequisitionNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartnerJobLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_JobPosting)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Requirements)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstHoursPerWeek)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkSchedule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostingStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostingEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active_YN)
+        </td>
+        <td style="min-width:150px; text-align:center">
+            @Html.ActionLink("Edit", "Edit", new { jobPostingID = item.JobPostingID }) |
+            @Html.ActionLink("Details", "Details", new { jobPostingID = item.JobPostingID }) |
+            @Html.ActionLink("Delete", "Delete", new { jobPostingID = item.JobPostingID })
+        </td>
+    </tr>
+}
+
+</table>

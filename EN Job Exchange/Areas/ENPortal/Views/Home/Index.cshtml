@@ -1,0 +1,82 @@
+﻿@model ENJobExchange.Areas.ENPortal.ViewModels.HomeIndexViewModel
+@{
+    ViewBag.Title = "My Referrals";
+    ViewBag.Account = Model.ENID;
+}
+<h2>
+    EN Portal Home
+</h2>
+<hr />
+@Html.ActionLink("Search Jobs", "Index", "Jobs") | 
+@Html.ActionLink("Review Referrals", "Show", "Referral", new { id = Model.ENID }, null)
+@*@Html.ActionLink("Account Management", "Index", "Account", new { id = Model.ENID }, null)*@
+@* @Html.ActionLink("EN Accounts", "Index", "Account")*@
+<hr />
+<h3>
+    My Recent Referrals
+</h3>
+<table>
+    <tr>
+                <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().Referral_DT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().Name_First)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().Name_Last)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().EmployerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().ReferralTypeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().StatusDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referrals.First().EN_Notes)
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model.Referrals)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referral_DT)
+                @Html.HiddenFor(modelItem => item.JobPostingID)
+                @Html.HiddenFor(modelItem => item.Account_ENID)
+                @Html.HiddenFor(modelItem => item.ENID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_First)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_Last)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferralTypeDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EN_Notes)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Referral", new { id = item.ReferralID }, null)
+            </td>
+        </tr>
+    }
+</table>

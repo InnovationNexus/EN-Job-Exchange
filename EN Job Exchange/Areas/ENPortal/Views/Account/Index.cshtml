@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ENJobExchange.DAL.Account_EN>
+
+@{
+    ViewBag.Title = "EN Accounts";
+}
+
+<h2>EN Accounts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_First)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Last)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PasswordLastReset_DT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsMasterYN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResetCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResetTimestamp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_First)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Last)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PasswordLastReset_DT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMasterYN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResetCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResetTimestamp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Account_ENID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Account_ENID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Account_ENID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("EN Portal", "Index", "Home")

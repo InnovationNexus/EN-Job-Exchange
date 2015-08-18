@@ -1,0 +1,95 @@
+﻿@model ENJobExchange.Areas.ENPortal.ViewModels.JobDisplayModel
+
+@{
+    ViewBag.Title = "Referral Details";
+    //ViewBag.Account = Model.ENID;
+}
+
+<h2>Job Posting Details</h2>
+
+
+<fieldset>
+
+@*
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobPostingID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobPostingID)
+    </div>*@
+    @Html.HiddenFor(model => model.JobPostingID)
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JobTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JobTitle)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CityStateZip)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CityStateZip)
+    </div>
+
+@*    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BusinessCategory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BusinessCategory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description_External)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description_External)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description_JobPosting)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description_JobPosting)
+    </div>*@
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EstHoursPerWeek)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EstHoursPerWeek)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.WorkSchedule)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WorkSchedule)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Requirements)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Requirements)
+    </div>
+
+
+</fieldset>
+<hr />
+@Html.ActionLink("Make Referral", "MakeReferral", new { id = Model.JobPostingID }, null)
+<br />
+<p>
+@*    @Html.ActionLink("Back to List", "Index", "Jobs")
+*@
+
+<a href="javascript:history.back()">Back to List</a>
+
+</p>

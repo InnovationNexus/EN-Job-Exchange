@@ -1,0 +1,98 @@
+﻿@model ENJobExchange.Areas.PartnerPortal.ViewModels.HomeIndexViewModel
+@{
+    ViewBag.Title = "My Referrals";
+}
+<h2>
+    My Referrals
+</h2>
+@using (Html.BeginForm("Index", "Referral", FormMethod.Get, new { SearchString = ViewBag.SearchString }))
+{
+    <p>
+        @Html.ActionLink("Show All Referrals", "Index", "Referral", new { partnerID = Model.PartnerID }, null)
+        |
+        @Html.DropDownListFor(m => m.SelectedStatusID, Model.StatusList)
+        @*@Html.DropDownList("status", "All")*@ |
+        @Html.TextBox("SearchString", "", new { id = "SearchString" }) @Html.ActionLink("Search for Referrals", "", "", new object { }, new { @id = "SearchButton" })
+    </p>
+@*    <p>
+        @Html.ActionLink("Show All Referrals", "Index", "Referral", new { partnerID = Model.PartnerID }, null)
+        |
+        @Html.TextBox("SearchString", "", new { id = "SearchString" }) @Html.ActionLink("Search for Referrals", "", "", new object { }, new { @id = "SearchButton" })
+    </p>*@
+}
+<hr />
+@Html.HiddenFor(model => model.PartnerID)
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EReferrals.First().ReferralDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EReferrals.First().JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EReferrals.First().PartnerRequisitionNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EReferrals.First().StatusDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EReferrals.First().Name_First)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EReferrals.First().Name_Last)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EReferrals.First().ENNotes)
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model.EReferrals)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferralDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartnerRequisitionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_First)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_Last)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ENNotes)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.)
+            </td>*@
+            @Html.HiddenFor(modelItem => item.ReferralID)
+            <td style="min-width: 125px; text-align: center">
+                @*@Html.ActionLink("Edit", "Edit", new {  referralID = item.ReferralID  }) |*@
+                @Html.ActionLink("Details", "Details", "Referral", new { referralID = item.ReferralID }, null)
+                @*@Html.ActionLink("Delete", "Delete", new { referralID = item.ReferralID })*@
+            </td>
+        </tr>
+    }
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $('#SearchButton').click(function (e) {
+                e.preventDefault();
+                $(this).parents('form').first().submit();
+            });
+        });
+
+    });
+</script>

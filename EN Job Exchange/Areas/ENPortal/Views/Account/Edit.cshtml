@@ -1,0 +1,109 @@
+﻿@model ENJobExchange.DAL.Account_EN
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Account_EN</legend>
+
+        @Html.HiddenFor(model => model.Account_ENID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ENID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ENID)
+            @Html.ValidationMessageFor(model => model.ENID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name_First)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name_First)
+            @Html.ValidationMessageFor(model => model.Name_First)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name_Last)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name_Last)
+            @Html.ValidationMessageFor(model => model.Name_Last)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PasswordLastReset_DT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PasswordLastReset_DT)
+            @Html.ValidationMessageFor(model => model.PasswordLastReset_DT)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsMasterYN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsMasterYN)
+            @Html.ValidationMessageFor(model => model.IsMasterYN)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ResetCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ResetCode)
+            @Html.ValidationMessageFor(model => model.ResetCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ResetTimestamp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ResetTimestamp)
+            @Html.ValidationMessageFor(model => model.ResetTimestamp)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

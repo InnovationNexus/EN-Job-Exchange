@@ -1,0 +1,1956 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="enjeDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="enjeDataModelStoreContainer">
+          <EntitySet Name="tblAccount_Employer" EntityType="enjeDataModel.Store.tblAccount_Employer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblAccount_EN" EntityType="enjeDataModel.Store.tblAccount_EN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblAudit_Login" EntityType="enjeDataModel.Store.tblAudit_Login" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblContact" EntityType="enjeDataModel.Store.tblContact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblEN" EntityType="enjeDataModel.Store.tblEN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblFlaggedPosting" EntityType="enjeDataModel.Store.tblFlaggedPosting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblJobPosting" EntityType="enjeDataModel.Store.tblJobPosting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLINK_Partner_to_Industry" EntityType="enjeDataModel.Store.tblLINK_Partner_to_Industry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLINK_Skill_To_Position" EntityType="enjeDataModel.Store.tblLINK_Skill_To_Position" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLIST_Industry" EntityType="enjeDataModel.Store.tblLIST_Industry" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLIST_Industry_Category" EntityType="enjeDataModel.Store.tblLIST_Industry_Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLIST_JobCategory" EntityType="enjeDataModel.Store.tblLIST_JobCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLIST_ReferralStatus" EntityType="enjeDataModel.Store.tblLIST_ReferralStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLIST_ReferralType" EntityType="enjeDataModel.Store.tblLIST_ReferralType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLIST_Skill" EntityType="enjeDataModel.Store.tblLIST_Skill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLocation" EntityType="enjeDataModel.Store.tblLocation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblPartner" EntityType="enjeDataModel.Store.tblPartner" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblPosition" EntityType="enjeDataModel.Store.tblPosition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblREF_USZipCodes" EntityType="enjeDataModel.Store.tblREF_USZipCodes" store:Type="Tables" store:Schema="dbo" store:Name="tblREF_USZipCodes">
+            <DefiningQuery>SELECT 
+      [tblREF_USZipCodes].[ZipCode] AS [ZipCode], 
+      [tblREF_USZipCodes].[State] AS [State], 
+      [tblREF_USZipCodes].[City] AS [City], 
+      [tblREF_USZipCodes].[Latitude] AS [Latitude], 
+      [tblREF_USZipCodes].[Longitude] AS [Longitude], 
+      [tblREF_USZipCodes].[GMTOffset] AS [GMTOffset], 
+      [tblREF_USZipCodes].[DaylightSavingsYN] AS [DaylightSavingsYN], 
+      [tblREF_USZipCodes].[CityZip_Count] AS [CityZip_Count]
+      FROM [dbo].[tblREF_USZipCodes] AS [tblREF_USZipCodes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblReferral" EntityType="enjeDataModel.Store.tblReferral" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblReferralNote" EntityType="enjeDataModel.Store.tblReferralNote" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_ReferralNote_Account_EmployerID" Association="enjeDataModel.Store.fk_ReferralNote_Account_EmployerID">
+            <End Role="tblAccount_Employer" EntitySet="tblAccount_Employer" />
+            <End Role="tblReferralNote" EntitySet="tblReferralNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblJobPosting_tblLocation" Association="enjeDataModel.Store.FK_tblJobPosting_tblLocation">
+            <End Role="tblLocation" EntitySet="tblLocation" />
+            <End Role="tblJobPosting" EntitySet="tblJobPosting" />
+          </AssociationSet>
+          <AssociationSet Name="fkAccounts_Employer_PartnerID" Association="enjeDataModel.Store.fkAccounts_Employer_PartnerID">
+            <End Role="tblPartner" EntitySet="tblPartner" />
+            <End Role="tblAccount_Employer" EntitySet="tblAccount_Employer" />
+          </AssociationSet>
+          <AssociationSet Name="fkAccounts_EN_ENID" Association="enjeDataModel.Store.fkAccounts_EN_ENID">
+            <End Role="tblEN" EntitySet="tblEN" />
+            <End Role="tblAccount_EN" EntitySet="tblAccount_EN" />
+          </AssociationSet>
+          <AssociationSet Name="fkContact_to_Partner" Association="enjeDataModel.Store.fkContact_to_Partner">
+            <End Role="tblPartner" EntitySet="tblPartner" />
+            <End Role="tblContact" EntitySet="tblContact" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_Account_ENID" Association="enjeDataModel.Store.fkFlaggedPosting_Account_ENID">
+            <End Role="tblAccount_EN" EntitySet="tblAccount_EN" />
+            <End Role="tblFlaggedPosting" EntitySet="tblFlaggedPosting" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_ENID" Association="enjeDataModel.Store.fkFlaggedPosting_ENID">
+            <End Role="tblEN" EntitySet="tblEN" />
+            <End Role="tblFlaggedPosting" EntitySet="tblFlaggedPosting" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_FromAccount_ENID" Association="enjeDataModel.Store.fkFlaggedPosting_FromAccount_ENID">
+            <End Role="tblAccount_EN" EntitySet="tblAccount_EN" />
+            <End Role="tblFlaggedPosting" EntitySet="tblFlaggedPosting" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_JobPostingID" Association="enjeDataModel.Store.fkFlaggedPosting_JobPostingID">
+            <End Role="tblJobPosting" EntitySet="tblJobPosting" />
+            <End Role="tblFlaggedPosting" EntitySet="tblFlaggedPosting" />
+          </AssociationSet>
+          <AssociationSet Name="fkJobPosting_to_Partner" Association="enjeDataModel.Store.fkJobPosting_to_Partner">
+            <End Role="tblPartner" EntitySet="tblPartner" />
+            <End Role="tblJobPosting" EntitySet="tblJobPosting" />
+          </AssociationSet>
+          <AssociationSet Name="fkJobPosting_to_Position" Association="enjeDataModel.Store.fkJobPosting_to_Position">
+            <End Role="tblPosition" EntitySet="tblPosition" />
+            <End Role="tblJobPosting" EntitySet="tblJobPosting" />
+          </AssociationSet>
+          <AssociationSet Name="fkLINK_PtoI_IndustryID" Association="enjeDataModel.Store.fkLINK_PtoI_IndustryID">
+            <End Role="tblLIST_Industry" EntitySet="tblLIST_Industry" />
+            <End Role="tblLINK_Partner_to_Industry" EntitySet="tblLINK_Partner_to_Industry" />
+          </AssociationSet>
+          <AssociationSet Name="fkLINK_PtoI_PartnerID" Association="enjeDataModel.Store.fkLINK_PtoI_PartnerID">
+            <End Role="tblPartner" EntitySet="tblPartner" />
+            <End Role="tblLINK_Partner_to_Industry" EntitySet="tblLINK_Partner_to_Industry" />
+          </AssociationSet>
+          <AssociationSet Name="fkLINK_StoP_Position" Association="enjeDataModel.Store.fkLINK_StoP_Position">
+            <End Role="tblPosition" EntitySet="tblPosition" />
+            <End Role="tblLINK_Skill_To_Position" EntitySet="tblLINK_Skill_To_Position" />
+          </AssociationSet>
+          <AssociationSet Name="fkLINK_StoP_Skill" Association="enjeDataModel.Store.fkLINK_StoP_Skill">
+            <End Role="tblLIST_Skill" EntitySet="tblLIST_Skill" />
+            <End Role="tblLINK_Skill_To_Position" EntitySet="tblLINK_Skill_To_Position" />
+          </AssociationSet>
+          <AssociationSet Name="fkList_Industry_to_Category" Association="enjeDataModel.Store.fkList_Industry_to_Category">
+            <End Role="tblLIST_Industry_Category" EntitySet="tblLIST_Industry_Category" />
+            <End Role="tblLIST_Industry" EntitySet="tblLIST_Industry" />
+          </AssociationSet>
+          <AssociationSet Name="fkLocation_to_Partner" Association="enjeDataModel.Store.fkLocation_to_Partner">
+            <End Role="tblPartner" EntitySet="tblPartner" />
+            <End Role="tblLocation" EntitySet="tblLocation" />
+          </AssociationSet>
+          <AssociationSet Name="fkPosition_to_Partner" Association="enjeDataModel.Store.fkPosition_to_Partner">
+            <End Role="tblPartner" EntitySet="tblPartner" />
+            <End Role="tblPosition" EntitySet="tblPosition" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_Account_ENID" Association="enjeDataModel.Store.fkReferral_Account_ENID">
+            <End Role="tblAccount_EN" EntitySet="tblAccount_EN" />
+            <End Role="tblReferral" EntitySet="tblReferral" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_ENID" Association="enjeDataModel.Store.fkReferral_ENID">
+            <End Role="tblEN" EntitySet="tblEN" />
+            <End Role="tblReferral" EntitySet="tblReferral" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_JobPostingID" Association="enjeDataModel.Store.fkReferral_JobPostingID">
+            <End Role="tblJobPosting" EntitySet="tblJobPosting" />
+            <End Role="tblReferral" EntitySet="tblReferral" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_ReferralStatusID" Association="enjeDataModel.Store.fkReferral_ReferralStatusID">
+            <End Role="tblLIST_ReferralStatus" EntitySet="tblLIST_ReferralStatus" />
+            <End Role="tblReferral" EntitySet="tblReferral" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_ReferralTypeID" Association="enjeDataModel.Store.fkReferral_ReferralTypeID">
+            <End Role="tblLIST_ReferralType" EntitySet="tblLIST_ReferralType" />
+            <End Role="tblReferral" EntitySet="tblReferral" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferralNote_ReferralID" Association="enjeDataModel.Store.fkReferralNote_ReferralID">
+            <End Role="tblReferral" EntitySet="tblReferral" />
+            <End Role="tblReferralNote" EntitySet="tblReferralNote" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblAccount_Employer">
+          <Key>
+            <PropertyRef Name="Account_EmployerID" />
+          </Key>
+          <Property Name="Account_EmployerID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PartnerID" Type="bigint" Nullable="false" />
+          <Property Name="Name_First" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name_Last" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="PasswordLastReset_DT" Type="datetime" Nullable="false" />
+          <Property Name="IsMasterYN" Type="bit" Nullable="false" />
+          <Property Name="ResetCode" Type="varchar" MaxLength="250" />
+          <Property Name="ResetTimestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblAccount_EN">
+          <Key>
+            <PropertyRef Name="Account_ENID" />
+          </Key>
+          <Property Name="Account_ENID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ENID" Type="bigint" Nullable="false" />
+          <Property Name="Name_First" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name_Last" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="PasswordLastReset_DT" Type="datetime" Nullable="false" />
+          <Property Name="IsMasterYN" Type="bit" Nullable="false" />
+          <Property Name="ResetCode" Type="varchar" MaxLength="250" />
+          <Property Name="ResetTimestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblAudit_Login">
+          <Key>
+            <PropertyRef Name="Audit_LoginID" />
+          </Key>
+          <Property Name="Audit_LoginID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="bigint" />
+          <Property Name="AccountType" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="UserNameEntered" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Login_DT" Type="datetime" Nullable="false" />
+          <Property Name="LoginStatus" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tblContact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="bigint" Nullable="false" />
+          <Property Name="LocationID" Type="bigint" />
+          <Property Name="ContactName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="Phone_Work1" Type="varchar" MaxLength="20" />
+          <Property Name="Phone_Work2" Type="varchar" MaxLength="20" />
+          <Property Name="Phone_Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="IsPrimaryContact_YN" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblEN">
+          <Key>
+            <PropertyRef Name="ENID" />
+          </Key>
+          <Property Name="ENID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="ActiveAsOf_DT" Type="datetime" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+          <Property Name="EstimatedTicketHolders" Type="int" />
+          <Property Name="EN_Type" Type="char" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="tblFlaggedPosting">
+          <Key>
+            <PropertyRef Name="FlaggedPostingID" />
+          </Key>
+          <Property Name="FlaggedPostingID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ENID" Type="bigint" Nullable="false" />
+          <Property Name="JobPostingID" Type="bigint" Nullable="false" />
+          <Property Name="Account_ENID" Type="bigint" Nullable="false" />
+          <Property Name="FromAccount_ENID" Type="bigint" Nullable="false" />
+          <Property Name="Flagged_DT" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblJobPosting">
+          <Key>
+            <PropertyRef Name="JobPostingID" />
+          </Key>
+          <Property Name="JobPostingID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="bigint" Nullable="false" />
+          <Property Name="LocationID" Type="bigint" />
+          <Property Name="PositionID" Type="bigint" Nullable="false" />
+          <Property Name="ContactID" Type="bigint" />
+          <Property Name="PartnerRequisitionNumber" Type="varchar" MaxLength="50" />
+          <Property Name="PartnerJobLevel" Type="varchar" MaxLength="10" />
+          <Property Name="JobTitle" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="BusinessCategory" Type="varchar" MaxLength="100" />
+          <Property Name="Description_External" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Description_JobPosting" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Requirements" Type="varchar" MaxLength="2000" />
+          <Property Name="EstHoursPerWeek" Type="varchar" MaxLength="5" />
+          <Property Name="WorkSchedule" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDT" Type="datetime" Nullable="false" />
+          <Property Name="PostingStartDate" Type="date" Nullable="false" />
+          <Property Name="PostingEndDate" Type="date" />
+          <Property Name="Active_YN" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLINK_Partner_to_Industry">
+          <Key>
+            <PropertyRef Name="Partner_to_IndustryID" />
+          </Key>
+          <Property Name="Partner_to_IndustryID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="bigint" Nullable="false" />
+          <Property Name="IndustryID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLINK_Skill_To_Position">
+          <Key>
+            <PropertyRef Name="SkillID" />
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="SkillID" Type="bigint" Nullable="false" />
+          <Property Name="PositionID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLIST_Industry">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="IndustryID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Industry_Title" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="NAIC_Industry_Code" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="NAIC_Industry_Specific_Code" Type="char" Nullable="false" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="tblLIST_Industry_Category">
+          <Key>
+            <PropertyRef Name="NAIC_Industry_Code" />
+          </Key>
+          <Property Name="NAIC_Industry_Code" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="Category_Title" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblLIST_JobCategory">
+          <Key>
+            <PropertyRef Name="JobCategoryID" />
+          </Key>
+          <Property Name="JobCategoryID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryDescription" Type="varchar" MaxLength="2000" />
+          <Property Name="ONet_Code" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblLIST_ReferralStatus">
+          <Key>
+            <PropertyRef Name="ReferralStatusID" />
+          </Key>
+          <Property Name="ReferralStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReferralStatusDesc" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblLIST_ReferralType">
+          <Key>
+            <PropertyRef Name="ReferralTypeID" />
+          </Key>
+          <Property Name="ReferralTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReferralTypeName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblLIST_Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tblLocation">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="bigint" Nullable="false" />
+          <Property Name="PartnerLocationCode" Type="varchar" MaxLength="50" />
+          <Property Name="Address1" Type="varchar" MaxLength="100" />
+          <Property Name="Address2" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="State" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Phone1" Type="varchar" MaxLength="20" />
+          <Property Name="Phone2" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="IsPrimaryLocation_YN" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPartner">
+          <Key>
+            <PropertyRef Name="PartnerID" />
+          </Key>
+          <Property Name="PartnerID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="ActiveAsOf_DT" Type="datetime" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPosition">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="bigint" />
+          <Property Name="JobCategoryID" Type="bigint" />
+          <Property Name="JobTitle" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="BusinessCategory" Type="varchar" MaxLength="100" />
+          <Property Name="Description_External" Type="varchar" MaxLength="2000" />
+          <Property Name="Description_JobPosting" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Requirements" Type="varchar" MaxLength="2000" />
+          <Property Name="Description" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ENJobExchange.dbo.tblREF_USZipCodes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblREF_USZipCodes">
+          <Key>
+            <PropertyRef Name="ZipCode" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="GMTOffset" />
+            <PropertyRef Name="DaylightSavingsYN" />
+            <PropertyRef Name="CityZip_Count" />
+          </Key>
+          <Property Name="ZipCode" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="State" Type="char" Nullable="false" MaxLength="2" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Latitude" Type="decimal" Nullable="false" Scale="8" />
+          <Property Name="Longitude" Type="decimal" Nullable="false" Scale="8" />
+          <Property Name="GMTOffset" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="DaylightSavingsYN" Type="bit" Nullable="false" />
+          <Property Name="CityZip_Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblReferral">
+          <Key>
+            <PropertyRef Name="ReferralID" />
+          </Key>
+          <Property Name="ReferralID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Referral_DT" Type="datetime" Nullable="false" />
+          <Property Name="JobPostingID" Type="bigint" Nullable="false" />
+          <Property Name="ReferralTypeID" Type="int" Nullable="false" />
+          <Property Name="ReferralStatusID" Type="int" Nullable="false" />
+          <Property Name="Account_ENID" Type="bigint" Nullable="false" />
+          <Property Name="ENID" Type="bigint" Nullable="false" />
+          <Property Name="Name_First" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Name_Last" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="File_CoverLetter" Type="varchar" MaxLength="250" />
+          <Property Name="File_Resume" Type="varchar" MaxLength="250" />
+          <Property Name="EN_Notes" Type="varchar" MaxLength="1000" />
+          <Property Name="ConfirmationNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblReferralNote">
+          <Key>
+            <PropertyRef Name="ReferralNoteID" />
+          </Key>
+          <Property Name="ReferralNoteID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ReferralID" Type="bigint" Nullable="false" />
+          <Property Name="Account_EmployerID" Type="bigint" Nullable="false" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="ProvideAsFeedback_YN" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_ReferralNote_Account_EmployerID">
+          <End Role="tblAccount_Employer" Type="enjeDataModel.Store.tblAccount_Employer" Multiplicity="1" />
+          <End Role="tblReferralNote" Type="enjeDataModel.Store.tblReferralNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_Employer">
+              <PropertyRef Name="Account_EmployerID" />
+            </Principal>
+            <Dependent Role="tblReferralNote">
+              <PropertyRef Name="Account_EmployerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblJobPosting_tblLocation">
+          <End Role="tblLocation" Type="enjeDataModel.Store.tblLocation" Multiplicity="0..1" />
+          <End Role="tblJobPosting" Type="enjeDataModel.Store.tblJobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLocation">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="tblJobPosting">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkAccounts_Employer_PartnerID">
+          <End Role="tblPartner" Type="enjeDataModel.Store.tblPartner" Multiplicity="1" />
+          <End Role="tblAccount_Employer" Type="enjeDataModel.Store.tblAccount_Employer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblAccount_Employer">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkAccounts_EN_ENID">
+          <End Role="tblEN" Type="enjeDataModel.Store.tblEN" Multiplicity="1" />
+          <End Role="tblAccount_EN" Type="enjeDataModel.Store.tblAccount_EN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEN">
+              <PropertyRef Name="ENID" />
+            </Principal>
+            <Dependent Role="tblAccount_EN">
+              <PropertyRef Name="ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkContact_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Store.tblPartner" Multiplicity="1" />
+          <End Role="tblContact" Type="enjeDataModel.Store.tblContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblContact">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_Account_ENID">
+          <End Role="tblAccount_EN" Type="enjeDataModel.Store.tblAccount_EN" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.Store.tblFlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_EN">
+              <PropertyRef Name="Account_ENID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="Account_ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_ENID">
+          <End Role="tblEN" Type="enjeDataModel.Store.tblEN" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.Store.tblFlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEN">
+              <PropertyRef Name="ENID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_FromAccount_ENID">
+          <End Role="tblAccount_EN" Type="enjeDataModel.Store.tblAccount_EN" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.Store.tblFlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_EN">
+              <PropertyRef Name="Account_ENID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="FromAccount_ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_JobPostingID">
+          <End Role="tblJobPosting" Type="enjeDataModel.Store.tblJobPosting" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.Store.tblFlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJobPosting">
+              <PropertyRef Name="JobPostingID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="JobPostingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkJobPosting_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Store.tblPartner" Multiplicity="1" />
+          <End Role="tblJobPosting" Type="enjeDataModel.Store.tblJobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblJobPosting">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkJobPosting_to_Position">
+          <End Role="tblPosition" Type="enjeDataModel.Store.tblPosition" Multiplicity="1" />
+          <End Role="tblJobPosting" Type="enjeDataModel.Store.tblJobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPosition">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="tblJobPosting">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkLINK_PtoI_IndustryID">
+          <End Role="tblLIST_Industry" Type="enjeDataModel.Store.tblLIST_Industry" Multiplicity="1" />
+          <End Role="tblLINK_Partner_to_Industry" Type="enjeDataModel.Store.tblLINK_Partner_to_Industry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_Industry">
+              <PropertyRef Name="IndustryID" />
+            </Principal>
+            <Dependent Role="tblLINK_Partner_to_Industry">
+              <PropertyRef Name="IndustryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkLINK_PtoI_PartnerID">
+          <End Role="tblPartner" Type="enjeDataModel.Store.tblPartner" Multiplicity="1" />
+          <End Role="tblLINK_Partner_to_Industry" Type="enjeDataModel.Store.tblLINK_Partner_to_Industry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblLINK_Partner_to_Industry">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkLINK_StoP_Position">
+          <End Role="tblPosition" Type="enjeDataModel.Store.tblPosition" Multiplicity="1" />
+          <End Role="tblLINK_Skill_To_Position" Type="enjeDataModel.Store.tblLINK_Skill_To_Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPosition">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="tblLINK_Skill_To_Position">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkLINK_StoP_Skill">
+          <End Role="tblLIST_Skill" Type="enjeDataModel.Store.tblLIST_Skill" Multiplicity="1" />
+          <End Role="tblLINK_Skill_To_Position" Type="enjeDataModel.Store.tblLINK_Skill_To_Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_Skill">
+              <PropertyRef Name="SkillID" />
+            </Principal>
+            <Dependent Role="tblLINK_Skill_To_Position">
+              <PropertyRef Name="SkillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkList_Industry_to_Category">
+          <End Role="tblLIST_Industry_Category" Type="enjeDataModel.Store.tblLIST_Industry_Category" Multiplicity="1" />
+          <End Role="tblLIST_Industry" Type="enjeDataModel.Store.tblLIST_Industry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_Industry_Category">
+              <PropertyRef Name="NAIC_Industry_Code" />
+            </Principal>
+            <Dependent Role="tblLIST_Industry">
+              <PropertyRef Name="NAIC_Industry_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkLocation_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Store.tblPartner" Multiplicity="1" />
+          <End Role="tblLocation" Type="enjeDataModel.Store.tblLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblLocation">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkPosition_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Store.tblPartner" Multiplicity="0..1" />
+          <End Role="tblPosition" Type="enjeDataModel.Store.tblPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblPosition">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_Account_ENID">
+          <End Role="tblAccount_EN" Type="enjeDataModel.Store.tblAccount_EN" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Store.tblReferral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_EN">
+              <PropertyRef Name="Account_ENID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="Account_ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_ENID">
+          <End Role="tblEN" Type="enjeDataModel.Store.tblEN" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Store.tblReferral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEN">
+              <PropertyRef Name="ENID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_JobPostingID">
+          <End Role="tblJobPosting" Type="enjeDataModel.Store.tblJobPosting" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Store.tblReferral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJobPosting">
+              <PropertyRef Name="JobPostingID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="JobPostingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_ReferralStatusID">
+          <End Role="tblLIST_ReferralStatus" Type="enjeDataModel.Store.tblLIST_ReferralStatus" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Store.tblReferral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_ReferralStatus">
+              <PropertyRef Name="ReferralStatusID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="ReferralStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_ReferralTypeID">
+          <End Role="tblLIST_ReferralType" Type="enjeDataModel.Store.tblLIST_ReferralType" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Store.tblReferral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_ReferralType">
+              <PropertyRef Name="ReferralTypeID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="ReferralTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferralNote_ReferralID">
+          <End Role="tblReferral" Type="enjeDataModel.Store.tblReferral" Multiplicity="1" />
+          <End Role="tblReferralNote" Type="enjeDataModel.Store.tblReferralNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblReferral">
+              <PropertyRef Name="ReferralID" />
+            </Principal>
+            <Dependent Role="tblReferralNote">
+              <PropertyRef Name="ReferralID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fncCalcZipCodeDistance" ReturnType="decimal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ZipCode1" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="prcSearchJobPostings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="Distance" Type="int" Mode="In" />
+          <Parameter Name="Keyword" Type="varchar" Mode="In" />
+          <Parameter Name="IndustryID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="prcSearchJobPostings_WithIndustryCategoryCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="Distance" Type="int" Mode="In" />
+          <Parameter Name="Keyword" Type="varchar" Mode="In" />
+          <Parameter Name="IndustryCategoryCode" Type="char" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="enjeDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account_Employer" EntityType="enjeDataModel.Account_Employer" />
+          <EntitySet Name="Account_EN" EntityType="enjeDataModel.Account_EN" />
+          <EntitySet Name="Audit_Login" EntityType="enjeDataModel.Audit_Login" />
+          <EntitySet Name="Contacts" EntityType="enjeDataModel.Contact" />
+          <EntitySet Name="ENs" EntityType="enjeDataModel.EN" />
+          <EntitySet Name="FlaggedPostings" EntityType="enjeDataModel.FlaggedPosting" />
+          <EntitySet Name="JobPostings" EntityType="enjeDataModel.JobPosting" />
+          <EntitySet Name="Industries" EntityType="enjeDataModel.Industry" />
+          <EntitySet Name="Industry_Category" EntityType="enjeDataModel.Industry_Category" />
+          <EntitySet Name="JobCategories" EntityType="enjeDataModel.JobCategory" />
+          <EntitySet Name="ReferralStatus" EntityType="enjeDataModel.ReferralStatus" />
+          <EntitySet Name="ReferralTypes" EntityType="enjeDataModel.ReferralType" />
+          <EntitySet Name="Skills" EntityType="enjeDataModel.Skill" />
+          <EntitySet Name="Locations" EntityType="enjeDataModel.Location" />
+          <EntitySet Name="Partners" EntityType="enjeDataModel.Partner" />
+          <EntitySet Name="Positions" EntityType="enjeDataModel.Position" />
+          <EntitySet Name="Referrals" EntityType="enjeDataModel.Referral" />
+          <EntitySet Name="ReferralNotes" EntityType="enjeDataModel.ReferralNote" />
+          <AssociationSet Name="fk_ReferralNote_Account_EmployerID" Association="enjeDataModel.fk_ReferralNote_Account_EmployerID">
+            <End Role="tblAccount_Employer" EntitySet="Account_Employer" />
+            <End Role="tblReferralNote" EntitySet="ReferralNotes" />
+          </AssociationSet>
+          <AssociationSet Name="fkAccounts_Employer_PartnerID" Association="enjeDataModel.fkAccounts_Employer_PartnerID">
+            <End Role="tblPartner" EntitySet="Partners" />
+            <End Role="tblAccount_Employer" EntitySet="Account_Employer" />
+          </AssociationSet>
+          <AssociationSet Name="fkAccounts_EN_ENID" Association="enjeDataModel.fkAccounts_EN_ENID">
+            <End Role="tblEN" EntitySet="ENs" />
+            <End Role="tblAccount_EN" EntitySet="Account_EN" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_Account_ENID" Association="enjeDataModel.fkFlaggedPosting_Account_ENID">
+            <End Role="tblAccount_EN" EntitySet="Account_EN" />
+            <End Role="tblFlaggedPosting" EntitySet="FlaggedPostings" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_FromAccount_ENID" Association="enjeDataModel.fkFlaggedPosting_FromAccount_ENID">
+            <End Role="tblAccount_EN" EntitySet="Account_EN" />
+            <End Role="tblFlaggedPosting" EntitySet="FlaggedPostings" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_Account_ENID" Association="enjeDataModel.fkReferral_Account_ENID">
+            <End Role="tblAccount_EN" EntitySet="Account_EN" />
+            <End Role="tblReferral" EntitySet="Referrals" />
+          </AssociationSet>
+          <AssociationSet Name="fkContact_to_Partner" Association="enjeDataModel.fkContact_to_Partner">
+            <End Role="tblPartner" EntitySet="Partners" />
+            <End Role="tblContact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_ENID" Association="enjeDataModel.fkFlaggedPosting_ENID">
+            <End Role="tblEN" EntitySet="ENs" />
+            <End Role="tblFlaggedPosting" EntitySet="FlaggedPostings" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_ENID" Association="enjeDataModel.fkReferral_ENID">
+            <End Role="tblEN" EntitySet="ENs" />
+            <End Role="tblReferral" EntitySet="Referrals" />
+          </AssociationSet>
+          <AssociationSet Name="fkFlaggedPosting_JobPostingID" Association="enjeDataModel.fkFlaggedPosting_JobPostingID">
+            <End Role="tblJobPosting" EntitySet="JobPostings" />
+            <End Role="tblFlaggedPosting" EntitySet="FlaggedPostings" />
+          </AssociationSet>
+          <AssociationSet Name="fkJobPosting_to_Partner" Association="enjeDataModel.fkJobPosting_to_Partner">
+            <End Role="tblPartner" EntitySet="Partners" />
+            <End Role="tblJobPosting" EntitySet="JobPostings" />
+          </AssociationSet>
+          <AssociationSet Name="fkJobPosting_to_Position" Association="enjeDataModel.fkJobPosting_to_Position">
+            <End Role="tblPosition" EntitySet="Positions" />
+            <End Role="tblJobPosting" EntitySet="JobPostings" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_JobPostingID" Association="enjeDataModel.fkReferral_JobPostingID">
+            <End Role="tblJobPosting" EntitySet="JobPostings" />
+            <End Role="tblReferral" EntitySet="Referrals" />
+          </AssociationSet>
+          <AssociationSet Name="fkList_Industry_to_Category" Association="enjeDataModel.fkList_Industry_to_Category">
+            <End Role="tblLIST_Industry_Category" EntitySet="Industry_Category" />
+            <End Role="tblLIST_Industry" EntitySet="Industries" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_ReferralStatusID" Association="enjeDataModel.fkReferral_ReferralStatusID">
+            <End Role="tblLIST_ReferralStatus" EntitySet="ReferralStatus" />
+            <End Role="tblReferral" EntitySet="Referrals" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferral_ReferralTypeID" Association="enjeDataModel.fkReferral_ReferralTypeID">
+            <End Role="tblLIST_ReferralType" EntitySet="ReferralTypes" />
+            <End Role="tblReferral" EntitySet="Referrals" />
+          </AssociationSet>
+          <AssociationSet Name="fkLocation_to_Partner" Association="enjeDataModel.fkLocation_to_Partner">
+            <End Role="tblPartner" EntitySet="Partners" />
+            <End Role="tblLocation" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="fkPosition_to_Partner" Association="enjeDataModel.fkPosition_to_Partner">
+            <End Role="tblPartner" EntitySet="Partners" />
+            <End Role="tblPosition" EntitySet="Positions" />
+          </AssociationSet>
+          <AssociationSet Name="fkReferralNote_ReferralID" Association="enjeDataModel.fkReferralNote_ReferralID">
+            <End Role="tblReferral" EntitySet="Referrals" />
+            <End Role="tblReferralNote" EntitySet="ReferralNotes" />
+          </AssociationSet>
+          <AssociationSet Name="tblLINK_Skill_To_Position" Association="enjeDataModel.tblLINK_Skill_To_Position">
+            <End Role="tblPosition" EntitySet="Positions" />
+            <End Role="tblLIST_Skill" EntitySet="Skills" />
+          </AssociationSet>
+          <EntitySet Name="tblREF_USZipCodes" EntityType="enjeDataModel.tblREF_USZipCodes" />
+          <AssociationSet Name="FK_tblJobPosting_tblLocation" Association="enjeDataModel.FK_tblJobPosting_tblLocation">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="JobPosting" EntitySet="JobPostings" />
+          </AssociationSet>
+          <FunctionImport Name="prcSearchJobPostings" ReturnType="Collection(enjeDataModel.prcSearchJobPostings_Result)">
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+            <Parameter Name="Distance" Mode="In" Type="Int32" />
+            <Parameter Name="Keyword" Mode="In" Type="String" />
+            <Parameter Name="IndustryID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="LINK_Partner_to_Industry" EntityType="enjeDataModel.LINK_Partner_to_Industry" />
+          <AssociationSet Name="fkLINK_PtoI_IndustryID" Association="enjeDataModel.fkLINK_PtoI_IndustryID">
+            <End Role="Industry" EntitySet="Industries" />
+            <End Role="tblLINK_Partner_to_Industry" EntitySet="LINK_Partner_to_Industry" />
+          </AssociationSet>
+          <AssociationSet Name="fkLINK_PtoI_PartnerID" Association="enjeDataModel.fkLINK_PtoI_PartnerID">
+            <End Role="Partner" EntitySet="Partners" />
+            <End Role="tblLINK_Partner_to_Industry" EntitySet="LINK_Partner_to_Industry" />
+          </AssociationSet>
+          <FunctionImport Name="prcSearchJobPostings_WithIndustryCategoryCode" ReturnType="Collection(enjeDataModel.prcSearchJobPostings_Result)">
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+            <Parameter Name="Distance" Mode="In" Type="Int32" />
+            <Parameter Name="Keyword" Mode="In" Type="String" />
+            <Parameter Name="IndustryCategoryCode" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Account_Employer">
+          <Key>
+            <PropertyRef Name="Account_EmployerID" />
+          </Key>
+          <Property Name="Account_EmployerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PartnerID" Type="Int64" Nullable="false" />
+          <Property Name="Name_First" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Name_Last" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PasswordLastReset_DT" Type="DateTime" Nullable="false" />
+          <Property Name="IsMasterYN" Type="Boolean" Nullable="false" />
+          <Property Name="ResetCode" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ResetTimestamp" Type="DateTime" />
+          <NavigationProperty Name="tblReferralNotes" Relationship="enjeDataModel.fk_ReferralNote_Account_EmployerID" FromRole="tblAccount_Employer" ToRole="tblReferralNote" />
+          <NavigationProperty Name="tblPartner" Relationship="enjeDataModel.fkAccounts_Employer_PartnerID" FromRole="tblAccount_Employer" ToRole="tblPartner" />
+        </EntityType>
+        <EntityType Name="Account_EN">
+          <Key>
+            <PropertyRef Name="Account_ENID" />
+          </Key>
+          <Property Name="Account_ENID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ENID" Type="Int64" Nullable="false" />
+          <Property Name="Name_First" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Name_Last" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PasswordLastReset_DT" Type="DateTime" Nullable="false" />
+          <Property Name="IsMasterYN" Type="Boolean" Nullable="false" />
+          <Property Name="ResetCode" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ResetTimestamp" Type="DateTime" />
+          <NavigationProperty Name="tblEN" Relationship="enjeDataModel.fkAccounts_EN_ENID" FromRole="tblAccount_EN" ToRole="tblEN" />
+          <NavigationProperty Name="tblFlaggedPostings" Relationship="enjeDataModel.fkFlaggedPosting_Account_ENID" FromRole="tblAccount_EN" ToRole="tblFlaggedPosting" />
+          <NavigationProperty Name="tblFlaggedPostings1" Relationship="enjeDataModel.fkFlaggedPosting_FromAccount_ENID" FromRole="tblAccount_EN" ToRole="tblFlaggedPosting" />
+          <NavigationProperty Name="tblReferrals" Relationship="enjeDataModel.fkReferral_Account_ENID" FromRole="tblAccount_EN" ToRole="tblReferral" />
+        </EntityType>
+        <EntityType Name="Audit_Login">
+          <Key>
+            <PropertyRef Name="Audit_LoginID" />
+          </Key>
+          <Property Name="Audit_LoginID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int64" />
+          <Property Name="AccountType" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="UserNameEntered" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Login_DT" Type="DateTime" Nullable="false" />
+          <Property Name="LoginStatus" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="Int64" Nullable="false" />
+          <Property Name="LocationID" Type="Int64" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Department" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone_Work1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Phone_Work2" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Phone_Mobile" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IsPrimaryContact_YN" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblPartner" Relationship="enjeDataModel.fkContact_to_Partner" FromRole="tblContact" ToRole="tblPartner" />
+        </EntityType>
+        <EntityType Name="EN">
+          <Key>
+            <PropertyRef Name="ENID" />
+          </Key>
+          <Property Name="ENID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ActiveAsOf_DT" Type="DateTime" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="EstimatedTicketHolders" Type="Int32" />
+          <Property Name="EN_Type" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="tblAccount_EN" Relationship="enjeDataModel.fkAccounts_EN_ENID" FromRole="tblEN" ToRole="tblAccount_EN" />
+          <NavigationProperty Name="tblFlaggedPostings" Relationship="enjeDataModel.fkFlaggedPosting_ENID" FromRole="tblEN" ToRole="tblFlaggedPosting" />
+          <NavigationProperty Name="tblReferrals" Relationship="enjeDataModel.fkReferral_ENID" FromRole="tblEN" ToRole="tblReferral" />
+        </EntityType>
+        <EntityType Name="FlaggedPosting">
+          <Key>
+            <PropertyRef Name="FlaggedPostingID" />
+          </Key>
+          <Property Name="FlaggedPostingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ENID" Type="Int64" Nullable="false" />
+          <Property Name="JobPostingID" Type="Int64" Nullable="false" />
+          <Property Name="Account_ENID" Type="Int64" Nullable="false" />
+          <Property Name="FromAccount_ENID" Type="Int64" Nullable="false" />
+          <Property Name="Flagged_DT" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="tblAccount_EN" Relationship="enjeDataModel.fkFlaggedPosting_Account_ENID" FromRole="tblFlaggedPosting" ToRole="tblAccount_EN" />
+          <NavigationProperty Name="tblAccount_EN1" Relationship="enjeDataModel.fkFlaggedPosting_FromAccount_ENID" FromRole="tblFlaggedPosting" ToRole="tblAccount_EN" />
+          <NavigationProperty Name="tblEN" Relationship="enjeDataModel.fkFlaggedPosting_ENID" FromRole="tblFlaggedPosting" ToRole="tblEN" />
+          <NavigationProperty Name="tblJobPosting" Relationship="enjeDataModel.fkFlaggedPosting_JobPostingID" FromRole="tblFlaggedPosting" ToRole="tblJobPosting" />
+        </EntityType>
+        <EntityType Name="JobPosting">
+          <Key>
+            <PropertyRef Name="JobPostingID" />
+          </Key>
+          <Property Name="JobPostingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="Int64" Nullable="false" />
+          <Property Name="LocationID" Type="Int64" />
+          <Property Name="PositionID" Type="Int64" Nullable="false" />
+          <Property Name="ContactID" Type="Int64" />
+          <Property Name="PartnerRequisitionNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PartnerJobLevel" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="BusinessCategory" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Description_External" Type="String" Nullable="false" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="Description_JobPosting" Type="String" Nullable="false" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="Requirements" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="EstHoursPerWeek" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="WorkSchedule" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDT" Type="DateTime" Nullable="false" />
+          <Property Name="PostingStartDate" Type="DateTime" Nullable="false" />
+          <Property Name="PostingEndDate" Type="DateTime" />
+          <Property Name="Active_YN" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblFlaggedPostings" Relationship="enjeDataModel.fkFlaggedPosting_JobPostingID" FromRole="tblJobPosting" ToRole="tblFlaggedPosting" />
+          <NavigationProperty Name="tblPartner" Relationship="enjeDataModel.fkJobPosting_to_Partner" FromRole="tblJobPosting" ToRole="tblPartner" />
+          <NavigationProperty Name="tblPosition" Relationship="enjeDataModel.fkJobPosting_to_Position" FromRole="tblJobPosting" ToRole="tblPosition" />
+          <NavigationProperty Name="tblReferrals" Relationship="enjeDataModel.fkReferral_JobPostingID" FromRole="tblJobPosting" ToRole="tblReferral" />
+          <NavigationProperty Name="tblLocation" Relationship="enjeDataModel.FK_tblJobPosting_tblLocation" FromRole="JobPosting" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Industry">
+          <Key>
+            <PropertyRef Name="IndustryID" />
+          </Key>
+          <Property Name="IndustryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Industry_Title" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="NAIC_Industry_Code" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="NAIC_Industry_Specific_Code" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="tblLIST_Industry_Category" Relationship="enjeDataModel.fkList_Industry_to_Category" FromRole="tblLIST_Industry" ToRole="tblLIST_Industry_Category" />
+          <NavigationProperty Name="tblLINK_Partner_to_Industry" Relationship="enjeDataModel.fkLINK_PtoI_IndustryID" FromRole="Industry" ToRole="tblLINK_Partner_to_Industry" />
+        </EntityType>
+        <EntityType Name="Industry_Category">
+          <Key>
+            <PropertyRef Name="NAIC_Industry_Code" />
+          </Key>
+          <Property Name="NAIC_Industry_Code" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Category_Title" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblLIST_Industry" Relationship="enjeDataModel.fkList_Industry_to_Category" FromRole="tblLIST_Industry_Category" ToRole="tblLIST_Industry" />
+        </EntityType>
+        <EntityType Name="JobCategory">
+          <Key>
+            <PropertyRef Name="JobCategoryID" />
+          </Key>
+          <Property Name="JobCategoryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="ONet_Code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ReferralStatus">
+          <Key>
+            <PropertyRef Name="ReferralStatusID" />
+          </Key>
+          <Property Name="ReferralStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferralStatusDesc" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblReferrals" Relationship="enjeDataModel.fkReferral_ReferralStatusID" FromRole="tblLIST_ReferralStatus" ToRole="tblReferral" />
+        </EntityType>
+        <EntityType Name="ReferralType">
+          <Key>
+            <PropertyRef Name="ReferralTypeID" />
+          </Key>
+          <Property Name="ReferralTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferralTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblReferrals" Relationship="enjeDataModel.fkReferral_ReferralTypeID" FromRole="tblLIST_ReferralType" ToRole="tblReferral" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblPositions" Relationship="enjeDataModel.tblLINK_Skill_To_Position" FromRole="tblLIST_Skill" ToRole="tblPosition" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="Int64" Nullable="false" />
+          <Property Name="PartnerLocationCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="Zip" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Phone1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Phone2" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IsPrimaryLocation_YN" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblPartner" Relationship="enjeDataModel.fkLocation_to_Partner" FromRole="tblLocation" ToRole="tblPartner" />
+          <NavigationProperty Name="tblJobPostings" Relationship="enjeDataModel.FK_tblJobPosting_tblLocation" FromRole="Location" ToRole="JobPosting" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="PartnerID" />
+          </Key>
+          <Property Name="PartnerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ActiveAsOf_DT" Type="DateTime" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblAccount_Employer" Relationship="enjeDataModel.fkAccounts_Employer_PartnerID" FromRole="tblPartner" ToRole="tblAccount_Employer" />
+          <NavigationProperty Name="tblContacts" Relationship="enjeDataModel.fkContact_to_Partner" FromRole="tblPartner" ToRole="tblContact" />
+          <NavigationProperty Name="tblJobPostings" Relationship="enjeDataModel.fkJobPosting_to_Partner" FromRole="tblPartner" ToRole="tblJobPosting" />
+          <NavigationProperty Name="tblLocations" Relationship="enjeDataModel.fkLocation_to_Partner" FromRole="tblPartner" ToRole="tblLocation" />
+          <NavigationProperty Name="tblPositions" Relationship="enjeDataModel.fkPosition_to_Partner" FromRole="tblPartner" ToRole="tblPosition" />
+          <NavigationProperty Name="tblLINK_Partner_to_Industry" Relationship="enjeDataModel.fkLINK_PtoI_PartnerID" FromRole="Partner" ToRole="tblLINK_Partner_to_Industry" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerID" Type="Int64" />
+          <Property Name="JobCategoryID" Type="Int64" />
+          <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="BusinessCategory" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Description_External" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="Description_JobPosting" Type="String" Nullable="false" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="Requirements" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblJobPostings" Relationship="enjeDataModel.fkJobPosting_to_Position" FromRole="tblPosition" ToRole="tblJobPosting" />
+          <NavigationProperty Name="tblPartner" Relationship="enjeDataModel.fkPosition_to_Partner" FromRole="tblPosition" ToRole="tblPartner" />
+          <NavigationProperty Name="tblLIST_Skill" Relationship="enjeDataModel.tblLINK_Skill_To_Position" FromRole="tblPosition" ToRole="tblLIST_Skill" />
+        </EntityType>
+        <EntityType Name="Referral">
+          <Key>
+            <PropertyRef Name="ReferralID" />
+          </Key>
+          <Property Name="ReferralID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Referral_DT" Type="DateTime" Nullable="false" />
+          <Property Name="JobPostingID" Type="Int64" Nullable="false" />
+          <Property Name="ReferralTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ReferralStatusID" Type="Int32" Nullable="false" />
+          <Property Name="Account_ENID" Type="Int64" Nullable="false" />
+          <Property Name="ENID" Type="Int64" Nullable="false" />
+          <Property Name="Name_First" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Name_Last" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="File_CoverLetter" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="File_Resume" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="EN_Notes" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblAccount_EN" Relationship="enjeDataModel.fkReferral_Account_ENID" FromRole="tblReferral" ToRole="tblAccount_EN" />
+          <NavigationProperty Name="tblEN" Relationship="enjeDataModel.fkReferral_ENID" FromRole="tblReferral" ToRole="tblEN" />
+          <NavigationProperty Name="tblJobPosting" Relationship="enjeDataModel.fkReferral_JobPostingID" FromRole="tblReferral" ToRole="tblJobPosting" />
+          <NavigationProperty Name="tblLIST_ReferralStatus" Relationship="enjeDataModel.fkReferral_ReferralStatusID" FromRole="tblReferral" ToRole="tblLIST_ReferralStatus" />
+          <NavigationProperty Name="tblLIST_ReferralType" Relationship="enjeDataModel.fkReferral_ReferralTypeID" FromRole="tblReferral" ToRole="tblLIST_ReferralType" />
+          <NavigationProperty Name="tblReferralNotes" Relationship="enjeDataModel.fkReferralNote_ReferralID" FromRole="tblReferral" ToRole="tblReferralNote" />
+          <Property Type="String" Name="ConfirmationNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReferralNote">
+          <Key>
+            <PropertyRef Name="ReferralNoteID" />
+          </Key>
+          <Property Name="ReferralNoteID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferralID" Type="Int64" Nullable="false" />
+          <Property Name="Account_EmployerID" Type="Int64" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="ProvideAsFeedback_YN" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblAccount_Employer" Relationship="enjeDataModel.fk_ReferralNote_Account_EmployerID" FromRole="tblReferralNote" ToRole="tblAccount_Employer" />
+          <NavigationProperty Name="tblReferral" Relationship="enjeDataModel.fkReferralNote_ReferralID" FromRole="tblReferralNote" ToRole="tblReferral" />
+        </EntityType>
+        <Association Name="fk_ReferralNote_Account_EmployerID">
+          <End Role="tblAccount_Employer" Type="enjeDataModel.Account_Employer" Multiplicity="1" />
+          <End Role="tblReferralNote" Type="enjeDataModel.ReferralNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_Employer">
+              <PropertyRef Name="Account_EmployerID" />
+            </Principal>
+            <Dependent Role="tblReferralNote">
+              <PropertyRef Name="Account_EmployerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkAccounts_Employer_PartnerID">
+          <End Role="tblPartner" Type="enjeDataModel.Partner" Multiplicity="1" />
+          <End Role="tblAccount_Employer" Type="enjeDataModel.Account_Employer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblAccount_Employer">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkAccounts_EN_ENID">
+          <End Role="tblEN" Type="enjeDataModel.EN" Multiplicity="1" />
+          <End Role="tblAccount_EN" Type="enjeDataModel.Account_EN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEN">
+              <PropertyRef Name="ENID" />
+            </Principal>
+            <Dependent Role="tblAccount_EN">
+              <PropertyRef Name="ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_Account_ENID">
+          <End Role="tblAccount_EN" Type="enjeDataModel.Account_EN" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.FlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_EN">
+              <PropertyRef Name="Account_ENID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="Account_ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_FromAccount_ENID">
+          <End Role="tblAccount_EN" Type="enjeDataModel.Account_EN" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.FlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_EN">
+              <PropertyRef Name="Account_ENID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="FromAccount_ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_Account_ENID">
+          <End Role="tblAccount_EN" Type="enjeDataModel.Account_EN" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Referral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAccount_EN">
+              <PropertyRef Name="Account_ENID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="Account_ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkContact_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Partner" Multiplicity="1" />
+          <End Role="tblContact" Type="enjeDataModel.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblContact">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_ENID">
+          <End Role="tblEN" Type="enjeDataModel.EN" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.FlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEN">
+              <PropertyRef Name="ENID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_ENID">
+          <End Role="tblEN" Type="enjeDataModel.EN" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Referral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEN">
+              <PropertyRef Name="ENID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="ENID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkFlaggedPosting_JobPostingID">
+          <End Role="tblJobPosting" Type="enjeDataModel.JobPosting" Multiplicity="1" />
+          <End Role="tblFlaggedPosting" Type="enjeDataModel.FlaggedPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJobPosting">
+              <PropertyRef Name="JobPostingID" />
+            </Principal>
+            <Dependent Role="tblFlaggedPosting">
+              <PropertyRef Name="JobPostingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkJobPosting_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Partner" Multiplicity="1" />
+          <End Role="tblJobPosting" Type="enjeDataModel.JobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblJobPosting">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkJobPosting_to_Position">
+          <End Role="tblPosition" Type="enjeDataModel.Position" Multiplicity="1" />
+          <End Role="tblJobPosting" Type="enjeDataModel.JobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPosition">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="tblJobPosting">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_JobPostingID">
+          <End Role="tblJobPosting" Type="enjeDataModel.JobPosting" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Referral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblJobPosting">
+              <PropertyRef Name="JobPostingID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="JobPostingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkList_Industry_to_Category">
+          <End Role="tblLIST_Industry_Category" Type="enjeDataModel.Industry_Category" Multiplicity="1" />
+          <End Role="tblLIST_Industry" Type="enjeDataModel.Industry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_Industry_Category">
+              <PropertyRef Name="NAIC_Industry_Code" />
+            </Principal>
+            <Dependent Role="tblLIST_Industry">
+              <PropertyRef Name="NAIC_Industry_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_ReferralStatusID">
+          <End Role="tblLIST_ReferralStatus" Type="enjeDataModel.ReferralStatus" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Referral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_ReferralStatus">
+              <PropertyRef Name="ReferralStatusID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="ReferralStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferral_ReferralTypeID">
+          <End Role="tblLIST_ReferralType" Type="enjeDataModel.ReferralType" Multiplicity="1" />
+          <End Role="tblReferral" Type="enjeDataModel.Referral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLIST_ReferralType">
+              <PropertyRef Name="ReferralTypeID" />
+            </Principal>
+            <Dependent Role="tblReferral">
+              <PropertyRef Name="ReferralTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkLocation_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Partner" Multiplicity="1" />
+          <End Role="tblLocation" Type="enjeDataModel.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblLocation">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkPosition_to_Partner">
+          <End Role="tblPartner" Type="enjeDataModel.Partner" Multiplicity="0..1" />
+          <End Role="tblPosition" Type="enjeDataModel.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPartner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblPosition">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkReferralNote_ReferralID">
+          <End Role="tblReferral" Type="enjeDataModel.Referral" Multiplicity="1" />
+          <End Role="tblReferralNote" Type="enjeDataModel.ReferralNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblReferral">
+              <PropertyRef Name="ReferralID" />
+            </Principal>
+            <Dependent Role="tblReferralNote">
+              <PropertyRef Name="ReferralID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblLINK_Skill_To_Position">
+          <End Role="tblPosition" Type="enjeDataModel.Position" Multiplicity="*" />
+          <End Role="tblLIST_Skill" Type="enjeDataModel.Skill" Multiplicity="*" />
+        </Association>
+        <EntityType Name="tblREF_USZipCodes">
+          <Key>
+            <PropertyRef Name="ZipCode" />
+            <PropertyRef Name="State" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="GMTOffset" />
+            <PropertyRef Name="DaylightSavingsYN" />
+            <PropertyRef Name="CityZip_Count" />
+          </Key>
+          <Property Type="String" Name="ZipCode" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Latitude" Nullable="false" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="Longitude" Nullable="false" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="GMTOffset" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="DaylightSavingsYN" Nullable="false" />
+          <Property Type="Int32" Name="CityZip_Count" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblJobPosting_tblLocation">
+          <End Type="enjeDataModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="enjeDataModel.JobPosting" Role="JobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="JobPosting">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="prcSearchJobPostings_Result">
+          <Property Type="Int64" Name="JobPostingID" Nullable="false" />
+          <Property Type="Int64" Name="PartnerID" Nullable="false" />
+          <Property Type="Int64" Name="LocationID" Nullable="true" />
+          <Property Type="Int64" Name="PositionID" Nullable="false" />
+          <Property Type="Int64" Name="ContactID" Nullable="true" />
+          <Property Type="String" Name="PartnerRequisitionNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PartnerJobLevel" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="BusinessCategory" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Description_External" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="Description_JobPosting" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="Requirements" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="EstHoursPerWeek" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="WorkSchedule" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="CreatedDT" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="PostingStartDate" Nullable="false" />
+          <Property Type="DateTime" Name="PostingEndDate" Nullable="true" />
+          <Property Type="Boolean" Name="Active_YN" Nullable="false" />
+          <Property Type="String" Name="Address1" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="Zip" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="LINK_Partner_to_Industry">
+          <Key>
+            <PropertyRef Name="Partner_to_IndustryID" />
+          </Key>
+          <Property Type="Int64" Name="Partner_to_IndustryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="PartnerID" Nullable="false" />
+          <Property Type="Int64" Name="IndustryID" Nullable="false" />
+          <NavigationProperty Name="tblLIST_Industry" Relationship="enjeDataModel.fkLINK_PtoI_IndustryID" FromRole="tblLINK_Partner_to_Industry" ToRole="Industry" />
+          <NavigationProperty Name="tblPartner" Relationship="enjeDataModel.fkLINK_PtoI_PartnerID" FromRole="tblLINK_Partner_to_Industry" ToRole="Partner" />
+        </EntityType>
+        <Association Name="fkLINK_PtoI_IndustryID">
+          <End Type="enjeDataModel.Industry" Role="Industry" Multiplicity="1" />
+          <End Type="enjeDataModel.LINK_Partner_to_Industry" Role="tblLINK_Partner_to_Industry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Industry">
+              <PropertyRef Name="IndustryID" />
+            </Principal>
+            <Dependent Role="tblLINK_Partner_to_Industry">
+              <PropertyRef Name="IndustryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkLINK_PtoI_PartnerID">
+          <End Type="enjeDataModel.Partner" Role="Partner" Multiplicity="1" />
+          <End Type="enjeDataModel.LINK_Partner_to_Industry" Role="tblLINK_Partner_to_Industry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partner">
+              <PropertyRef Name="PartnerID" />
+            </Principal>
+            <Dependent Role="tblLINK_Partner_to_Industry">
+              <PropertyRef Name="PartnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="enjeDataModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Account_Employer">
+            <EntityTypeMapping TypeName="enjeDataModel.Account_Employer">
+              <MappingFragment StoreEntitySet="tblAccount_Employer">
+                <ScalarProperty Name="Account_EmployerID" ColumnName="Account_EmployerID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="Name_First" ColumnName="Name_First" />
+                <ScalarProperty Name="Name_Last" ColumnName="Name_Last" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordLastReset_DT" ColumnName="PasswordLastReset_DT" />
+                <ScalarProperty Name="IsMasterYN" ColumnName="IsMasterYN" />
+                <ScalarProperty Name="ResetCode" ColumnName="ResetCode" />
+                <ScalarProperty Name="ResetTimestamp" ColumnName="ResetTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Account_EN">
+            <EntityTypeMapping TypeName="enjeDataModel.Account_EN">
+              <MappingFragment StoreEntitySet="tblAccount_EN">
+                <ScalarProperty Name="Account_ENID" ColumnName="Account_ENID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ENID" ColumnName="ENID" />
+                <ScalarProperty Name="Name_First" ColumnName="Name_First" />
+                <ScalarProperty Name="Name_Last" ColumnName="Name_Last" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordLastReset_DT" ColumnName="PasswordLastReset_DT" />
+                <ScalarProperty Name="IsMasterYN" ColumnName="IsMasterYN" />
+                <ScalarProperty Name="ResetCode" ColumnName="ResetCode" />
+                <ScalarProperty Name="ResetTimestamp" ColumnName="ResetTimestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Audit_Login">
+            <EntityTypeMapping TypeName="enjeDataModel.Audit_Login">
+              <MappingFragment StoreEntitySet="tblAudit_Login">
+                <ScalarProperty Name="Audit_LoginID" ColumnName="Audit_LoginID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="UserNameEntered" ColumnName="UserNameEntered" />
+                <ScalarProperty Name="Login_DT" ColumnName="Login_DT" />
+                <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="enjeDataModel.Contact">
+              <MappingFragment StoreEntitySet="tblContact">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Phone_Work1" ColumnName="Phone_Work1" />
+                <ScalarProperty Name="Phone_Work2" ColumnName="Phone_Work2" />
+                <ScalarProperty Name="Phone_Mobile" ColumnName="Phone_Mobile" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsPrimaryContact_YN" ColumnName="IsPrimaryContact_YN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENs">
+            <EntityTypeMapping TypeName="enjeDataModel.EN">
+              <MappingFragment StoreEntitySet="tblEN">
+                <ScalarProperty Name="ENID" ColumnName="ENID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ActiveAsOf_DT" ColumnName="ActiveAsOf_DT" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="EstimatedTicketHolders" ColumnName="EstimatedTicketHolders" />
+                <ScalarProperty Name="EN_Type" ColumnName="EN_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlaggedPostings">
+            <EntityTypeMapping TypeName="enjeDataModel.FlaggedPosting">
+              <MappingFragment StoreEntitySet="tblFlaggedPosting">
+                <ScalarProperty Name="FlaggedPostingID" ColumnName="FlaggedPostingID" />
+                <ScalarProperty Name="ENID" ColumnName="ENID" />
+                <ScalarProperty Name="JobPostingID" ColumnName="JobPostingID" />
+                <ScalarProperty Name="Account_ENID" ColumnName="Account_ENID" />
+                <ScalarProperty Name="FromAccount_ENID" ColumnName="FromAccount_ENID" />
+                <ScalarProperty Name="Flagged_DT" ColumnName="Flagged_DT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPostings">
+            <EntityTypeMapping TypeName="enjeDataModel.JobPosting">
+              <MappingFragment StoreEntitySet="tblJobPosting">
+                <ScalarProperty Name="JobPostingID" ColumnName="JobPostingID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="PartnerRequisitionNumber" ColumnName="PartnerRequisitionNumber" />
+                <ScalarProperty Name="PartnerJobLevel" ColumnName="PartnerJobLevel" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="BusinessCategory" ColumnName="BusinessCategory" />
+                <ScalarProperty Name="Description_External" ColumnName="Description_External" />
+                <ScalarProperty Name="Description_JobPosting" ColumnName="Description_JobPosting" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="EstHoursPerWeek" ColumnName="EstHoursPerWeek" />
+                <ScalarProperty Name="WorkSchedule" ColumnName="WorkSchedule" />
+                <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+                <ScalarProperty Name="PostingStartDate" ColumnName="PostingStartDate" />
+                <ScalarProperty Name="PostingEndDate" ColumnName="PostingEndDate" />
+                <ScalarProperty Name="Active_YN" ColumnName="Active_YN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industries">
+            <EntityTypeMapping TypeName="enjeDataModel.Industry">
+              <MappingFragment StoreEntitySet="tblLIST_Industry">
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+                <ScalarProperty Name="Industry_Title" ColumnName="Industry_Title" />
+                <ScalarProperty Name="NAIC_Industry_Code" ColumnName="NAIC_Industry_Code" />
+                <ScalarProperty Name="NAIC_Industry_Specific_Code" ColumnName="NAIC_Industry_Specific_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_Category">
+            <EntityTypeMapping TypeName="enjeDataModel.Industry_Category">
+              <MappingFragment StoreEntitySet="tblLIST_Industry_Category">
+                <ScalarProperty Name="NAIC_Industry_Code" ColumnName="NAIC_Industry_Code" />
+                <ScalarProperty Name="Category_Title" ColumnName="Category_Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategories">
+            <EntityTypeMapping TypeName="enjeDataModel.JobCategory">
+              <MappingFragment StoreEntitySet="tblLIST_JobCategory">
+                <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="ONet_Code" ColumnName="ONet_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferralStatus">
+            <EntityTypeMapping TypeName="enjeDataModel.ReferralStatus">
+              <MappingFragment StoreEntitySet="tblLIST_ReferralStatus">
+                <ScalarProperty Name="ReferralStatusID" ColumnName="ReferralStatusID" />
+                <ScalarProperty Name="ReferralStatusDesc" ColumnName="ReferralStatusDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferralTypes">
+            <EntityTypeMapping TypeName="enjeDataModel.ReferralType">
+              <MappingFragment StoreEntitySet="tblLIST_ReferralType">
+                <ScalarProperty Name="ReferralTypeID" ColumnName="ReferralTypeID" />
+                <ScalarProperty Name="ReferralTypeName" ColumnName="ReferralTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="enjeDataModel.Skill">
+              <MappingFragment StoreEntitySet="tblLIST_Skill">
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="enjeDataModel.Location">
+              <MappingFragment StoreEntitySet="tblLocation">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="PartnerLocationCode" ColumnName="PartnerLocationCode" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="IsPrimaryLocation_YN" ColumnName="IsPrimaryLocation_YN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partners">
+            <EntityTypeMapping TypeName="enjeDataModel.Partner">
+              <MappingFragment StoreEntitySet="tblPartner">
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ActiveAsOf_DT" ColumnName="ActiveAsOf_DT" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="enjeDataModel.Position">
+              <MappingFragment StoreEntitySet="tblPosition">
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="BusinessCategory" ColumnName="BusinessCategory" />
+                <ScalarProperty Name="Description_External" ColumnName="Description_External" />
+                <ScalarProperty Name="Description_JobPosting" ColumnName="Description_JobPosting" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Referrals">
+            <EntityTypeMapping TypeName="enjeDataModel.Referral">
+              <MappingFragment StoreEntitySet="tblReferral">
+                <ScalarProperty Name="ConfirmationNumber" ColumnName="ConfirmationNumber" />
+                <ScalarProperty Name="ReferralID" ColumnName="ReferralID" />
+                <ScalarProperty Name="Referral_DT" ColumnName="Referral_DT" />
+                <ScalarProperty Name="JobPostingID" ColumnName="JobPostingID" />
+                <ScalarProperty Name="ReferralTypeID" ColumnName="ReferralTypeID" />
+                <ScalarProperty Name="ReferralStatusID" ColumnName="ReferralStatusID" />
+                <ScalarProperty Name="Account_ENID" ColumnName="Account_ENID" />
+                <ScalarProperty Name="ENID" ColumnName="ENID" />
+                <ScalarProperty Name="Name_First" ColumnName="Name_First" />
+                <ScalarProperty Name="Name_Last" ColumnName="Name_Last" />
+                <ScalarProperty Name="File_CoverLetter" ColumnName="File_CoverLetter" />
+                <ScalarProperty Name="File_Resume" ColumnName="File_Resume" />
+                <ScalarProperty Name="EN_Notes" ColumnName="EN_Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferralNotes">
+            <EntityTypeMapping TypeName="enjeDataModel.ReferralNote">
+              <MappingFragment StoreEntitySet="tblReferralNote">
+                <ScalarProperty Name="ReferralNoteID" ColumnName="ReferralNoteID" />
+                <ScalarProperty Name="ReferralID" ColumnName="ReferralID" />
+                <ScalarProperty Name="Account_EmployerID" ColumnName="Account_EmployerID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ProvideAsFeedback_YN" ColumnName="ProvideAsFeedback_YN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="tblLINK_Skill_To_Position" TypeName="enjeDataModel.tblLINK_Skill_To_Position" StoreEntitySet="tblLINK_Skill_To_Position">
+            <EndProperty Name="tblPosition">
+              <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+            </EndProperty>
+            <EndProperty Name="tblLIST_Skill">
+              <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="tblREF_USZipCodes">
+            <EntityTypeMapping TypeName="enjeDataModel.tblREF_USZipCodes">
+              <MappingFragment StoreEntitySet="tblREF_USZipCodes">
+                <ScalarProperty Name="CityZip_Count" ColumnName="CityZip_Count" />
+                <ScalarProperty Name="DaylightSavingsYN" ColumnName="DaylightSavingsYN" />
+                <ScalarProperty Name="GMTOffset" ColumnName="GMTOffset" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prcSearchJobPostings" FunctionName="enjeDataModel.Store.prcSearchJobPostings">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="enjeDataModel.prcSearchJobPostings_Result">
+                <ScalarProperty Name="JobPostingID" ColumnName="JobPostingID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="PartnerRequisitionNumber" ColumnName="PartnerRequisitionNumber" />
+                <ScalarProperty Name="PartnerJobLevel" ColumnName="PartnerJobLevel" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="BusinessCategory" ColumnName="BusinessCategory" />
+                <ScalarProperty Name="Description_External" ColumnName="Description_External" />
+                <ScalarProperty Name="Description_JobPosting" ColumnName="Description_JobPosting" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="EstHoursPerWeek" ColumnName="EstHoursPerWeek" />
+                <ScalarProperty Name="WorkSchedule" ColumnName="WorkSchedule" />
+                <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+                <ScalarProperty Name="PostingStartDate" ColumnName="PostingStartDate" />
+                <ScalarProperty Name="PostingEndDate" ColumnName="PostingEndDate" />
+                <ScalarProperty Name="Active_YN" ColumnName="Active_YN" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="LINK_Partner_to_Industry">
+            <EntityTypeMapping TypeName="enjeDataModel.LINK_Partner_to_Industry">
+              <MappingFragment StoreEntitySet="tblLINK_Partner_to_Industry">
+                <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="Partner_to_IndustryID" ColumnName="Partner_to_IndustryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prcSearchJobPostings_WithIndustryCategoryCode" FunctionName="enjeDataModel.Store.prcSearchJobPostings_WithIndustryCategoryCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="enjeDataModel.prcSearchJobPostings_Result">
+                <ScalarProperty Name="JobPostingID" ColumnName="JobPostingID" />
+                <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="PartnerRequisitionNumber" ColumnName="PartnerRequisitionNumber" />
+                <ScalarProperty Name="PartnerJobLevel" ColumnName="PartnerJobLevel" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="BusinessCategory" ColumnName="BusinessCategory" />
+                <ScalarProperty Name="Description_External" ColumnName="Description_External" />
+                <ScalarProperty Name="Description_JobPosting" ColumnName="Description_JobPosting" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="EstHoursPerWeek" ColumnName="EstHoursPerWeek" />
+                <ScalarProperty Name="WorkSchedule" ColumnName="WorkSchedule" />
+                <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+                <ScalarProperty Name="PostingStartDate" ColumnName="PostingStartDate" />
+                <ScalarProperty Name="PostingEndDate" ColumnName="PostingEndDate" />
+                <ScalarProperty Name="Active_YN" ColumnName="Active_YN" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="enjeDataModel" ZoomLevel="55">
+        <EntityTypeShape EntityType="enjeDataModel.Account_Employer" Width="1.5" PointX="8.25" PointY="0.875" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Account_EN" Width="1.5" PointX="3" PointY="5.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Audit_Login" Width="1.5" PointX="8.75" PointY="11.125" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Contact" Width="1.5" PointX="3" PointY="24.5" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.EN" Width="1.5" PointX="0.75" PointY="6.25" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.FlaggedPosting" Width="1.5" PointX="5.25" PointY="6.25" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.JobPosting" Width="1.5" PointX="3" PointY="12" Height="5.2494108072916692" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Industry" Width="1.5" PointX="1.5" PointY="18.5" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Industry_Category" Width="1.5" PointX="1.5" PointY="21.875" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.JobCategory" Width="1.5" PointX="10.75" PointY="3.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.ReferralStatus" Width="1.5" PointX="6" PointY="3.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.ReferralType" Width="1.5" PointX="6" PointY="10" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Skill" Width="1.5" PointX="3" PointY="29.625" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Location" Width="1.5" PointX="3" PointY="0.75" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Partner" Width="1.5" PointX="0.75" PointY="11.125" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Position" Width="1.5" PointX="0.75" PointY="24.875" Height="3.3263964843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.Referral" Width="1.5" PointX="8.375" PointY="5.25" Height="4.4802050781250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="enjeDataModel.ReferralNote" Width="1.5" PointX="10.5" PointY="6.5" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="enjeDataModel.fk_ReferralNote_Account_EmployerID" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="1.96875" />
+          <ConnectorPoint PointX="10.59375" PointY="1.96875" />
+          <ConnectorPoint PointX="10.59375" PointY="6.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkAccounts_Employer_PartnerID" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.3125005" PointY="11.125" />
+          <ConnectorPoint PointX="1.3125005" PointY="9.2494921875" />
+          <ConnectorPoint PointX="1.7916666666666667" PointY="9.2494921875" />
+          <ConnectorPoint PointX="1.9583333333333333" PointY="9.2494921875" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="9.2494921875" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="9.2494921875" />
+          <ConnectorPoint PointX="2.75" PointY="9.2494921875" />
+          <ConnectorPoint PointX="2.75" PointY="4.7109993489583326" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="4.7109993489583317" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="4.7109993489583326" />
+          <ConnectorPoint PointX="5.75" PointY="4.7109993489583326" />
+          <ConnectorPoint PointX="5.75" PointY="2.2812505" />
+          <ConnectorPoint PointX="8.25" PointY="2.2812505" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkAccounts_EN_ENID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.62474609375" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="7.6247460937499989" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="7.62474609375" />
+          <ConnectorPoint PointX="3" PointY="7.62474609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkFlaggedPosting_Account_ENID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.7208968098958337" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.7208968098958328" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.7208968098958337" />
+          <ConnectorPoint PointX="5.25" PointY="7.7208968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkFlaggedPosting_FromAccount_ENID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.9229484049479169" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="6.922948404947916" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="6.9229484049479169" />
+          <ConnectorPoint PointX="5.25" PointY="6.9229484049479169" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkReferral_Account_ENID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.96875" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.9687499999999991" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.96875" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="5.9687499999999991" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="5.96875" />
+          <ConnectorPoint PointX="8.375" PointY="5.96875" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkContact_to_Partner" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.13286261072151" />
+          <ConnectorPoint PointX="2.75" PointY="12.13286261072151" />
+          <ConnectorPoint PointX="2.75" PointY="17.691712239583335" />
+          <ConnectorPoint PointX="3.3854170416666665" PointY="17.691712239583335" />
+          <ConnectorPoint PointX="3.5520837083333334" PointY="17.691712239583335" />
+          <ConnectorPoint PointX="3.9843746875" PointY="17.691712239583335" />
+          <ConnectorPoint PointX="3.9843746875" PointY="24.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkFlaggedPosting_ENID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.9061210468749987" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="6.9061210468749987" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="5.5956835937500031" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="5.5956835937500022" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="5.5956835937500031" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.5956835937500022" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.5956835937500031" />
+          <ConnectorPoint PointX="6" PointY="5.5956835937500031" />
+          <ConnectorPoint PointX="6" PointY="6.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkReferral_ENID" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="8.9994921875" />
+          <ConnectorPoint PointX="1.875" PointY="9.8191536458333317" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="9.8191536458333317" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="9.8191536458333317" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="9.8191536458333317" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="9.8191536458333317" />
+          <ConnectorPoint PointX="5.510416666666667" PointY="9.8191536458333317" />
+          <ConnectorPoint PointX="5.677083333333333" PointY="9.8191536458333317" />
+          <ConnectorPoint PointX="8.375" PointY="9.8191536458333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkFlaggedPosting_JobPostingID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="13.844077593790688" />
+          <ConnectorPoint PointX="5.59375" PointY="13.844077593790688" />
+          <ConnectorPoint PointX="5.59375" PointY="9.1917936197916674" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkJobPosting_to_Partner" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="13.162328115256589" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="13.162328115256589" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="13.162328115256589" />
+          <ConnectorPoint PointX="3" PointY="13.162328115256589" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkJobPosting_to_Position" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="26.5381982421875" />
+          <ConnectorPoint PointX="2.75" PointY="26.5381982421875" />
+          <ConnectorPoint PointX="2.75" PointY="24.25" />
+          <ConnectorPoint PointX="3.468750375" PointY="24.25" />
+          <ConnectorPoint PointX="3.468750375" PointY="17.441712239583335" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkReferral_JobPostingID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.359541296895337" />
+          <ConnectorPoint PointX="5.760416666666667" PointY="14.359541296895337" />
+          <ConnectorPoint PointX="5.927083333333333" PointY="14.359541296895337" />
+          <ConnectorPoint PointX="8.5917978125000012" PointY="14.359541296895337" />
+          <ConnectorPoint PointX="8.5917978125000012" PointY="9.9225065104166656" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkList_Industry_to_Category" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="21.875" />
+          <ConnectorPoint PointX="2.25" PointY="20.672587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkReferral_ReferralStatusID" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="4.8530984583333332" />
+          <ConnectorPoint PointX="9.84375" PointY="4.8530984583333332" />
+          <ConnectorPoint PointX="9.84375" PointY="5.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkReferral_ReferralTypeID" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="10.53125" />
+          <ConnectorPoint PointX="8.4218725" PointY="10.53125" />
+          <ConnectorPoint PointX="8.4218725" PointY="9.7302050781250031" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkLocation_to_Partner" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="11.126152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="10.751152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="2.6054996744791663" />
+          <ConnectorPoint PointX="3" PointY="2.6054996744791663" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkPosition_to_Partner" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.09375" PointY="14.066793619791666" />
+          <ConnectorPoint PointX="1.09375" PointY="24.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkReferralNote_ReferralID" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.875" PointY="7.6824446614583337" />
+          <ConnectorPoint PointX="10.5" PointY="7.6824446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.tblLINK_Skill_To_Position" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="28.201396484375003" />
+          <ConnectorPoint PointX="1.5" PointY="30.518992513020834" />
+          <ConnectorPoint PointX="3" PointY="30.518992513020834" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="enjeDataModel.tblREF_USZipCodes" Width="1.5" PointX="11.375" PointY="9.75" Height="2.5571907552083388" />
+        <AssociationConnector Association="enjeDataModel.FK_tblJobPosting_tblLocation" >
+          <ConnectorPoint PointX="4.5" PointY="4.4609993489583326" />
+          <ConnectorPoint PointX="4.875" PointY="4.8359993489583326" />
+          <ConnectorPoint PointX="4.875" PointY="11.626152846153847" />
+          <ConnectorPoint PointX="4.5" PointY="12.001152846153847" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="enjeDataModel.LINK_Partner_to_Industry" Width="1.5" PointX="5.75" PointY="14.875" Height="1.9802864583333388" />
+        <AssociationConnector Association="enjeDataModel.fkLINK_PtoI_IndustryID" >
+          <ConnectorPoint PointX="3" PointY="19.586293945312498" />
+          <ConnectorPoint PointX="3.3854170416666665" PointY="19.586293945312498" />
+          <ConnectorPoint PointX="3.5520837083333334" PointY="19.586293945312498" />
+          <ConnectorPoint PointX="3.9010413541666664" PointY="19.586293945312498" />
+          <ConnectorPoint PointX="4.0677080208333329" PointY="19.586293945312498" />
+          <ConnectorPoint PointX="6.5" PointY="19.586293945312498" />
+          <ConnectorPoint PointX="6.5" PointY="16.855286458333339" />
+        </AssociationConnector>
+        <AssociationConnector Association="enjeDataModel.fkLINK_PtoI_PartnerID" >
+          <ConnectorPoint PointX="2.25" PointY="11.797841796875002" />
+          <ConnectorPoint PointX="4.6199777159455122" PointY="11.797841796875002" />
+          <ConnectorPoint PointX="4.7866443826121783" PointY="11.797841796875002" />
+          <ConnectorPoint PointX="5.510416666666667" PointY="11.797841796875002" />
+          <ConnectorPoint PointX="5.677083333333333" PointY="11.797841796875002" />
+          <ConnectorPoint PointX="5.84375" PointY="11.797841796875002" />
+          <ConnectorPoint PointX="5.84375" PointY="14.875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

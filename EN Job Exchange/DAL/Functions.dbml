@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ENJobExchange" Class="FunctionsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ers-fs2;Initial Catalog=ENJobExchange;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ENJE" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.fncCalcZipCodeDistance" Method="fncCalcZipCodeDistance" IsComposable="true">
+    <Parameter Name="ZipCode1" Parameter="zipCode1" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="ZipCode2" Parameter="zipCode2" Type="System.String" DbType="VarChar(5)" />
+    <Return Type="System.Decimal" />
+  </Function>
+</Database>

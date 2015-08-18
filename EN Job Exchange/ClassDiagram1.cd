@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ENJobExchange.DAL.Entities" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FEmAQFAuACQAAASgACYCCIA6kIgQAkEAxCGMgRABBYI=</HashCode>
+      <FileName>DAL\enjeDataModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Account_Employer" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IYYBFQgAJGgEB0AABQIECCBQQIEAlCMCAQAYBBAEUAI=</HashCode>
+      <FileName>DAL\Account_Employer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Account_EN" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IYQBHIggJCgAA0AIDUI0CCBQQIECJAECgQAYBAAcUAI=</HashCode>
+      <FileName>DAL\Account_EN.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Audit_Login" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAmAIIAAgAAgQAAAhAAIoAgAACAAgAMAJNAAiACAAA=</HashCode>
+      <FileName>DAL\Audit_Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Contact" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQADAQgEiGAUBEAJBAAhEQAgGKEAkAMZAAKCRCAAAQI=</HashCode>
+      <FileName>DAL\Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.EN" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhiAIAAAAAABAIIAEAIIEQASAAgeEEAgAAAAAgUIAA=</HashCode>
+      <FileName>DAL\EN.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.FlaggedPosting" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QYBgAKA4AMAAQAAIAECyIBAEYAACBIBEgAAAAAAKAAA=</HashCode>
+      <FileName>DAL\FlaggedPosting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Industry" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQgABAAgAAADAAAQBAIAEIAAACAAAAAgCIAAAAVAA=</HashCode>
+      <FileName>DAL\Industry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Industry_Category" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAAAAAAAAAgAAAABAAAAAgAACAAAAAAAIAAACRAA=</HashCode>
+      <FileName>DAL\Industry_Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.JobCategory" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACABAIAAAAAQAABAAAAAABAACkgAAABAAAGAAACkAA=</HashCode>
+      <FileName>DAL\JobCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.JobPosting" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GRBHA/MgKIAeBCABAkAA4QICIgeE8JNExCJIDAEaEJI=</HashCode>
+      <FileName>DAL\JobPosting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Location" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ESCACSAEjABUJgAJgAAMCEIQBCJAkAIABEgOJDEIwAI=</HashCode>
+      <FileName>DAL\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Partner" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAQQIgAAAEBCIAABAIAAAAAAIAEENAAAAAAAAEgEA=</HashCode>
+      <FileName>DAL\Partner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Position" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GBCBAQIAAAEmBAABAEAAgQICAgMkkIJEwCQACAAIgBI=</HashCode>
+      <FileName>DAL\Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Referral" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CKAghLxhJCUARoAKAUCyICBGYJJiQIBEgAAQkAEKaUA=</HashCode>
+      <FileName>DAL\Referral.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.ReferralNote" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECIgAgABIkAAAAAAAIAQCBAAQABAICBAIMBAAAEAAAQ=</HashCode>
+      <FileName>DAL\ReferralNote.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.ReferralStatus">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAAABAAAAAQAAEAAAAAAAAAAAAIAAAAAgAAAUABAA=</HashCode>
+      <FileName>DAL\ReferralStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.ReferralType">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABACBAAAAAAAAAAABABAIAAAIAEAABAAAAAAAAg=</HashCode>
+      <FileName>DAL\ReferralType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.Skill" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAEgEAAAAAAAoAABCABAAAAEAAQBAAAAAAE=</HashCode>
+      <FileName>DAL\Skill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.tblREF_USZipCodes" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BMEGAAACBNBAAmAIAAAoAAEAQAAAEBABAAA6DCEgAAA=</HashCode>
+      <FileName>DAL\tblREF_USZipCodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ENJobExchange.DAL.prcSearchJobPostings_Result" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>GRBHS/MALoBeIiAJgkAE6UICIgeEUJNkxCJIDCEKUNI=</HashCode>
+      <FileName>DAL\prcSearchJobPostings_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

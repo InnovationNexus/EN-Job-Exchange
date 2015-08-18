@@ -1,0 +1,88 @@
+﻿@model ENJobExchange.DAL.Account_EN
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Account_EN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ENID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ENID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name_First)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name_First)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name_Last)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name_Last)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PasswordLastReset_DT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PasswordLastReset_DT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsMasterYN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsMasterYN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ResetCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ResetCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ResetTimestamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ResetTimestamp)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

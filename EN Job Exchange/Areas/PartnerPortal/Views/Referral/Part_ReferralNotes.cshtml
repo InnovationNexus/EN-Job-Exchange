@@ -1,0 +1,61 @@
+﻿@model ENJobExchange.DAL.ReferralNote
+
+@{
+    ViewBag.Title = "Partner Referral Notes";
+}
+
+<h2>Partner Referral Notes</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @*<legend>ReferralNote</legend>*@
+        @Html.HiddenFor(model => model.ReferralID)
+        @Html.HiddenFor(model => model.ReferralNoteID)
+@*        <div class="editor-label">
+            @Html.LabelFor(model => model.ReferralID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReferralID)
+            @Html.ValidationMessageFor(model => model.ReferralID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Account_EmployerID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Account_EmployerID)
+            @Html.ValidationMessageFor(model => model.Account_EmployerID)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Note)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Note)
+           @* @Html.EditorFor(model => model.Note)*@
+            @Html.ValidationMessageFor(model => model.Note)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProvideAsFeedback_YN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProvideAsFeedback_YN)
+            @Html.ValidationMessageFor(model => model.ProvideAsFeedback_YN)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

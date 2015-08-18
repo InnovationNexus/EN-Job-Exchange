@@ -1,0 +1,115 @@
+﻿@model ENJobExchange.Areas.PartnerPortal.ViewModels.JobPostingViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>JobPosting</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.PartnerJobLevel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.PartnerJobLevel)
+            @Html.ValidationMessageFor(model => model.jobPosting.PartnerJobLevel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.JobTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.JobTitle)
+            @Html.ValidationMessageFor(model => model.jobPosting.JobTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.BusinessCategory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.BusinessCategory)
+            @Html.ValidationMessageFor(model => model.jobPosting.BusinessCategory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.Description_JobPosting)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.jobPosting.Description_JobPosting, 6, 60, new { })
+            @Html.ValidationMessageFor(model => model.jobPosting.Description_JobPosting)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.Requirements)
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.jobPosting.Requirements)*@
+            @Html.TextAreaFor(model => model.jobPosting.Requirements, 6, 60, new { })
+            @Html.ValidationMessageFor(model => model.jobPosting.Requirements)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.EstHoursPerWeek)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.EstHoursPerWeek)
+            @Html.ValidationMessageFor(model => model.jobPosting.EstHoursPerWeek)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.WorkSchedule)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.WorkSchedule)
+            @Html.ValidationMessageFor(model => model.jobPosting.WorkSchedule)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.CreatedDT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.CreatedDT)
+            @Html.ValidationMessageFor(model => model.jobPosting.CreatedDT)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.PostingStartDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.PostingStartDate)
+            @Html.ValidationMessageFor(model => model.jobPosting.PostingStartDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.PostingEndDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.PostingEndDate)
+            @Html.ValidationMessageFor(model => model.jobPosting.PostingEndDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobPosting.Active_YN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobPosting.Active_YN)
+            @Html.ValidationMessageFor(model => model.jobPosting.Active_YN)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
